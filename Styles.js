@@ -26,13 +26,18 @@ export const styles = StyleSheet.create({
       borderRadius: 15
       
     },
-    title: {
+    stileBlocchi: {
   
       fontSize: 20,
       color: "white",
       marginTop: 45,
       marginLeft: 20
   
+    },
+
+    title2: {
+      fontSize: 50,
+      color: "black"
     },
   
     optionPrincipals: {
@@ -42,6 +47,14 @@ export const styles = StyleSheet.create({
       left: 355,
       top: 0
       
+    },
+    stileimmagine: {
+      width: 200,
+      height: 200
+    },
+    title: {
+      fontSize: 20,
+      color: "black"
     }
-  
+
   });

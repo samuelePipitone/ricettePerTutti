@@ -34,27 +34,22 @@ const BLOCCHI = [
 export default function HomeScreen( {navigation} ){
     const [selectedId, setSelectedId] = useState(null);
 
-    const Item = ({item, onPress, backgroundColor, textColor}) => (
+    const Item = ({item, onPress}) => (
 
-      <TouchableOpacity style = {[styles.item, backgroundColor]} onPress={() => navigation.navigate('categoria')}>
-          <Text style = {[styles.title, textColor]}>{item.title}</Text>
+      <TouchableOpacity style = {styles.item} onPress={() => navigation.navigate('categoria')}>
+          <Text style = {styles.stileBlocchi}>{item.title}</Text>
       </TouchableOpacity>  
     
     );
 
     //funzione renderItem
     const renderItem = ({ item }) => {
-  
-      const backgroundColor = item.id === selectedId ? "red" : "black";
-      const color = item.id === selectedId ? "black" : "white";
-  
+
       //creazione item
       return (
         <Item
         item={item}
         onPress= {() => setSelectedId(item.id)}
-        backgroundColor= {{ backgroundColor }}
-        textColor = {{ color }}
         />
       );
     };

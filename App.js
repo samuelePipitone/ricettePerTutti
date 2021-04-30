@@ -19,6 +19,7 @@ import paginaCategoria from "./src/screen/paginaCategoria";
 //CREO STACK NAVIGAZIONE
 const Stack = createStackNavigator();
 
+
 //MAIN 
 export default function App() {
 
