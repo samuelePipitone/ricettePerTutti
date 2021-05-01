@@ -1,3 +1,4 @@
+//import
 import React from "react";
 import { useEffect, useState } from 'react';
 import {ScrollView, SafeAreaView} from "react-native";
@@ -11,14 +12,15 @@ import Ricetta from "../components/Ricetta.js";
 const APP_ID = '3dca0b91';
 const APP_KEY = '72b2bc992bdbafabe3b61df5dcbdc464';
 
-
+//schermo categoria
 export default function categoria( {navigation} ){
 
+    //tre stati per richiesta ricette
     const [richiesta, setRichiesta] = React.useState('');
     const [data, setData] = React.useState([]);
     const [ricerca, setRicerca] = React.useState("");
 
-    //da capire useEffect
+    //useEffect 
     useEffect(() => {
         getRecipes();
     }, [ricerca])
@@ -30,23 +32,27 @@ export default function categoria( {navigation} ){
         setData(data2.hits);
     }
 
-    //funzione cambio ricerca (props -> query)
+    //funzione ricerca (solo scrittura)
     const onChangeSearch = query => setRichiesta(query);
 
-    //funzione placeholder ricerca
+    //funzione modifica stato di ricerca
     const getSearch = () => {
         setRicerca(richiesta);
     }
 
+    //barra ricerca e mapping data
     return(
    <SafeAreaView style={styles.container}>
-       <ScrollView style={styles.container}>
+
          <Searchbar
          placeholder="Cerca"
          onChangeText={onChangeSearch}
          value={richiesta}
          onIconPress={getSearch}
          />
+
+       <ScrollView style={styles.container_paginaCategoria}>
+
         {data.map(data => (
          <Ricetta 
          key={data.recipe.calories}
@@ -54,6 +60,7 @@ export default function categoria( {navigation} ){
          calories={data.recipe.calories}
          image={data.recipe.image}/>
         ))}
+        
        </ScrollView>
    </SafeAreaView>
 

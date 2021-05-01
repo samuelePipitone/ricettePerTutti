@@ -5,11 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { ScreenStackHeaderBackButtonImage } from 'react-native-screens';
 
 //IMPORT LIBRERIE
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { useState } from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView,
-FlatList, TouchableOpacity, Alert} from 'react-native';
+
 
 //import da miei file
 import opzioni from "./src/screen/opzioni";

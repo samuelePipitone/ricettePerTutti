@@ -2,14 +2,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from "react";
 import { useState } from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView,
-FlatList, TouchableOpacity, Alert} from 'react-native';
+import {  Text, Image, SafeAreaView,
+FlatList, TouchableOpacity } from 'react-native';
 
 //import miei file
 import {styles} from "../../Styles.js";
 
-
-//creazione blocchi
+//creazione blocchi per flatlist
 const BLOCCHI = [
     {
       id: "box1",
@@ -29,28 +28,22 @@ const BLOCCHI = [
     }
   ];
 
-
-  //funzione di ritorno
+  //schermo home
 export default function HomeScreen( {navigation} ){
+    <StatusBar style="auto" />
+
     const [selectedId, setSelectedId] = useState(null);
+    const Item = ({item}) => (
 
-    const Item = ({item, onPress}) => (
-
-      <TouchableOpacity style = {styles.item} onPress={() => navigation.navigate('categoria')}>
-          <Text style = {styles.stileBlocchi}>{item.title}</Text>
+      <TouchableOpacity style = {styles.blocco_homeScreen} onPress={() => navigation.navigate('categoria')}>
+          <Text style = {styles.testoBlocchi_homeScreen}>{item.title}</Text>
       </TouchableOpacity>  
-    
     );
 
-    //funzione renderItem
+    //render del singolo item
     const renderItem = ({ item }) => {
-
-      //creazione item
       return (
-        <Item
-        item={item}
-        onPress= {() => setSelectedId(item.id)}
-        />
+        <Item item={item} />
       );
     };
 
@@ -59,12 +52,10 @@ export default function HomeScreen( {navigation} ){
       <SafeAreaView style={styles.container}>
 
         <Image style={styles.stileLogo} source={require("../images/logo.jpg")}/>
-
+        
         <TouchableOpacity onPress= {() => navigation.navigate('opzioni')}>
-            <Image source={require("../images/settings.png")} style={styles.optionPrincipals}/>
+            <Image source={require("../images/settings.png")} style={styles.option_homeScreen}/>
         </TouchableOpacity>
-
-        <StatusBar style="auto" />
 
         <FlatList
         data = {BLOCCHI}
