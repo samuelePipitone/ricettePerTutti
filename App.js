@@ -9,9 +9,14 @@ import React from 'react';
 
 
 //import da miei file
-import opzioni from "./src/screen/opzioni";
 import HomeScreen from "./src/screen/homeScreen";
-import paginaCategoria from "./src/screen/paginaCategoria";
+import paginaRicetta from "./src/screen/paginaRicetta";
+import categoriaTradizionale from "./src/screen/categoriaTradizionale";
+import categoriaFacile from "./src/screen/categoriaFacile";
+import categoriaPersonalizzata from "./src/screen/categoriaPersonalizzata";
+import categoriaFit from "./src/screen/categoriaFit";
+import schermataUtente from "./src/screen/schermataUtente";
+
 
 //CREO STACK NAVIGAZIONE
 const Stack = createStackNavigator();
@@ -24,8 +29,13 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name = "Home" component={HomeScreen}/>
-        <Stack.Screen name = "opzioni" component={opzioni}/>
-        <Stack.Screen name = "categoria" component={paginaCategoria}/>
+        <Stack.Screen name = "utente" component={schermataUtente}/>
+        <Stack.Screen name = "categoriaFit" component={categoriaFit}/>
+        <Stack.Screen name = "categoriaTradizionale" component={categoriaTradizionale}/>
+        <Stack.Screen name = "categoriaFacile" component={categoriaFacile}/>
+        <Stack.Screen name = "categoriaPersonalizzata" component={categoriaPersonalizzata}/>
+        <Stack.Screen name = "ricetta" component={paginaRicetta}/>
+        
         </Stack.Navigator>
         </NavigationContainer>
 

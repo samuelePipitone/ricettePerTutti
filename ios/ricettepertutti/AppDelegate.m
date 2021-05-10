@@ -1,4 +1,14 @@
 #import "AppDelegate.h"
+// Add the header at the top of the file:
+#import <React/RCTLinkingManager.h>
+
+// Add this above `@end`:
+- (BOOL)application:(UIApplication *)application
+   openURL:(NSURL *)url
+   options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+  return [RCTLinkingManager application:application openURL:url options:options];
+}
 
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>

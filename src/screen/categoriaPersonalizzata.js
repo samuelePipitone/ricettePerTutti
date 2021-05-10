@@ -6,11 +6,13 @@ import { Searchbar } from 'react-native-paper';
 
 //miei import
 import {styles} from "../../Styles.js";
-import Ricetta from "../components/Ricetta.js";
+import RicettaCategoria from "../components/RicettaCategoria.js";
 
-//CREDENZIALI EDAMAM API
+//CREDENZIALI EDAMAM API search
 const APP_ID = '3dca0b91';
 const APP_KEY = '72b2bc992bdbafabe3b61df5dcbdc464';
+
+
 
 //schermo categoria
 export default function categoria( {navigation} ){
@@ -54,11 +56,16 @@ export default function categoria( {navigation} ){
        <ScrollView style={styles.container_paginaCategoria}>
 
         {data.map(data => (
-         <Ricetta 
+         <RicettaCategoria 
          key={data.recipe.calories}
          title={data.recipe.label}
-         calories={data.recipe.calories}
-         image={data.recipe.image}/>
+         calories={(data.recipe.calories).toFixed(0)}
+         image={data.recipe.image}
+         ingredients={data.recipe.ingredients}
+         url={data.recipe.url}
+         numeroId={4}
+         navigation={navigation}/>
+         
         ))}
         
        </ScrollView>

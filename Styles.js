@@ -9,6 +9,19 @@ export const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#fff',
     },
+
+    container2: {
+      flex: 1,
+      backgroundColor: "white",
+      marginBottom: 100,
+      top: 100
+    },
+
+    containerUtente: {
+      flex: 1,
+      backgroundColor: "white",
+      flexDirection: "center",
+    },
     
     container_paginaCategoria: {
       flex: 1,
@@ -46,8 +59,9 @@ export const styles = StyleSheet.create({
     },
 
     immagineRicetta_Ricetta: {
-      width: 200,
-      height: 200
+      width: 100,
+      height: 100,
+      flex: 1
     },
 
     titoloRicetta_Ricetta: {
@@ -58,6 +72,14 @@ export const styles = StyleSheet.create({
     descrizioneRicetta_Ricetta: {
       fontSize: 13,
       color: "black"
+    },
+
+    item: {
+      backgroundColor: "red",
+      marginVertical: 8,
+      marginHorizontal: 20,
+      width: 140,
+      height: 70
     }
 
   });
