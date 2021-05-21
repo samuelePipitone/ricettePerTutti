@@ -1,6 +1,6 @@
 //import
 import React from "react";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import {ScrollView, SafeAreaView} from "react-native";
 import { Searchbar } from 'react-native-paper';
 
@@ -11,8 +11,6 @@ import RicettaCategoria from "../components/RicettaCategoria.js";
 //CREDENZIALI EDAMAM API search
 const APP_ID = '3dca0b91';
 const APP_KEY = '72b2bc992bdbafabe3b61df5dcbdc464';
-
-
 
 //schermo categoria
 export default function categoria( {navigation} ){
@@ -41,7 +39,6 @@ export default function categoria( {navigation} ){
     const getSearch = () => {
         setRicerca(richiesta);
     }
-
 
     //barra ricerca e mapping data
     return(

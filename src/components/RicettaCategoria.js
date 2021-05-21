@@ -5,13 +5,15 @@ import {View, Text, Image, TouchableWithoutFeedback} from "react-native"
 //import miei file
 import {styles} from "../../Styles.js";
 
-
 //funzione componente ricetta
-export default function RicettaCategoria({title, calories, image , ingredients, url, numeroId, digest,
-                                          yields, totalTime, navigation} ){
+export default function RicettaCategoria(
+    {title, calories, image , ingredients, url, numeroId, digest,
+     yields, totalTime, navigation} ){
+    
     return(
     <View style={styles.container}>
-        <TouchableWithoutFeedback onPress= {() => navigation.navigate('ricetta', {
+        <TouchableWithoutFeedback onPress= {() =>
+         {navigation.navigate('ricetta', {
              title: title,
              image: image,
              calories: calories,
@@ -20,7 +22,7 @@ export default function RicettaCategoria({title, calories, image , ingredients, 
              numeroId: numeroId,
              digest: digest,
              yields: yields,
-             totalTime: totalTime  })}>
+             totalTime: totalTime  })} }>
             <Image style={styles.immagineRicetta_Ricetta} source={{uri: image}}/>
         </TouchableWithoutFeedback>
 
@@ -30,3 +32,4 @@ export default function RicettaCategoria({title, calories, image , ingredients, 
     </View>
     )
 }
+

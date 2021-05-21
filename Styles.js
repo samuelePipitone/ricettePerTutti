@@ -1,6 +1,7 @@
 //import
 import { StyleSheet } from 'react-native';
 
+
 //stili
 
 export const styles = StyleSheet.create({
@@ -20,7 +21,7 @@ export const styles = StyleSheet.create({
     containerUtente: {
       flex: 1,
       backgroundColor: "white",
-      flexDirection: "center",
+      flexDirection: "row",
     },
     
     container_paginaCategoria: {
@@ -34,14 +35,6 @@ export const styles = StyleSheet.create({
       height: 60,
       marginTop: 20,
       left: 165,
-    },
-
-    blocco_homeScreen: {
-      backgroundColor: "black",
-      marginVertical: 8,
-      marginHorizontal: 20,
-      height: 120,
-      borderRadius: 15
     },
 
     testoBlocchi_homeScreen: {
@@ -58,28 +51,57 @@ export const styles = StyleSheet.create({
       top: 0
     },
 
-    immagineRicetta_Ricetta: {
-      width: 100,
-      height: 100,
-      flex: 1
-    },
-
-    titoloRicetta_Ricetta: {
-      fontSize: 20,
-      color: "black"
-    },
-
     descrizioneRicetta_Ricetta: {
       fontSize: 13,
       color: "black"
     },
 
-    item: {
-      backgroundColor: "red",
-      marginVertical: 8,
-      marginHorizontal: 20,
-      width: 140,
-      height: 70
-    }
+    item: {   
+    backgroundColor: "red",
+    marginVertical: 8,
+    marginHorizontal: 20,
+    width: 140,
+    height: 70
+    
+  },
+  itemSelected: {   
+    backgroundColor: "green",
+    marginVertical: 8,
+    marginHorizontal: 20,
+    width: 140,
+    height: 70
+    
+  },
+ 
+    prova:{
+      flex: 1,
 
+    },
+    immagineRicetta_Ricetta:{
+      width: 200,
+      height: 200
+    },
+
+    //RICETTA HOMESCREEN
+
+    itemRicettaHomeScreen: {
+      flex: 1,
+      marginVertical: 10,
+      width: 300,
+      height: 250,
+      borderRightWidth: 70,
+      borderRightColor: "white"
+    },
+
+    immagineRicettaHomeScreen: {
+      width: 200,
+      height: 150
+    },
+
+    titoloRicettaHomeScreen: {
+      fontSize: 20,
+      color: "black",
+      flex: 1
+    },
+    
   });

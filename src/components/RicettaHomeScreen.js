@@ -1,16 +1,18 @@
 //import
 import React from "react";
 import {View, Text, Image, TouchableWithoutFeedback} from "react-native"
+import FontAwsome from "react-native-vector-icons/FontAwesome";
 
 //import miei file
 import {styles} from "../../Styles.js";
 
-
 //funzione componente ricetta
-export default function RicettaHomeScreen({title, calories, image , ingredients, url, numeroId, 
-                                          digest, yields, totalTime, navigation} ){
+export default function RicettaHomeScreen(
+    {title, calories, image , ingredients, url, numeroId, 
+    digest, yields, totalTime, navigation} ){
+                                       
     return(
-    <View style={styles.container}>
+    <View style={styles.itemRicettaHomeScreen}>
         <TouchableWithoutFeedback onPress= {() => navigation.navigate('ricetta', {
              title: title,
              image: image,
@@ -21,12 +23,20 @@ export default function RicettaHomeScreen({title, calories, image , ingredients,
              digest: digest,
              yields: yields,
              totalTime: totalTime  })}>
-            <Image style={styles.immagineRicetta_Ricetta} source={{uri: image}}/>
+            <Image style={styles.immagineRicettaHomeScreen} source={{uri: image}}/>
         </TouchableWithoutFeedback>
 
-        <Text style={styles.titoloRicetta_Ricetta}>{title}</Text>
+        <View style={{left: "90%"}}>
+            <TouchableWithoutFeedback onPress={() => console.log("ciao")}>
+               <FontAwsome name="heart-o" color={"red"} size={20}/>
+            </TouchableWithoutFeedback>
+        </View>
+
+        <Text style={styles.titoloRicettaHomeScreen}>{title}</Text>
         <Text style={styles.titoloRicetta_Ricetta}>{calories} Kcal</Text>
         
     </View>
     )
 }
+
+

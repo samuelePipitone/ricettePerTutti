@@ -1,94 +1,166 @@
 //import
 import React from "react";
-import {SafeAreaView, View, Text, FlatList} from "react-native"
+import {SafeAreaView, Text, FlatList, TouchableOpacity} from "react-native"
 import { ScrollView } from "react-native-gesture-handler";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //import miei file
 import {styles} from "../../Styles.js";
 
-import Preferiti from "../components/Preferiti";
-
+//dati preferenze
 const data =[
-    {
+     {
         titolo: "no alcol",
-        id: 1
-    },
-    {
-        titolo: "no crostacei",
-        id: 2
-    },
+        id: 1,
+        isSelect: false,
+        stile: styles.item
+      },
+    { 
+      titolo: "no crostacei",
+        id: 2,
+        isSelect: false,
+        stile: styles.item},
     {
         titolo: "no lattosio",
-        id: 3
-    },
+        id: 3,
+        isSelect: false,
+        stile: styles.item
+      },
     {
         titolo: "no uova",
-        id: 4
+        id: 4,
+        isSelect: false,
+        stile: styles.item
     },
     {
         titolo: "no pesce",
-        id: 5
+        id: 5,
+        isSelect: false,
+        stile: styles.item
     },
     {
         titolo: "no glutine",
-        id: 6
+        id: 6,
+        isSelect: false,
+        stile: styles.item
     },
     {
         titolo: "kosher",
-        id: 7
+        id: 7,
+        isSelect: false,
+        stile: styles.item
     },
     {
         titolo: "no noccioline",
-        id: 8
+        id: 8,
+        isSelect: false,
+        stile: styles.item
     },
     {
         titolo: "no maiale",
-        id: 9
+        id: 9,
+        isSelect: false,
+        stile: styles.item
     },
     {
         titolo: "vegana",
-        id: 10
+        id: 10,
+        isSelect: false,
+        stile: styles.item
     },
     {
         titolo: "vegetariana",
-        id: 11
+        id: 11,
+        isSelect: false,
+        stile: styles.item
     },
     {
         titolo: "no carne rossa",
-        id: 12
+        id: 12,
+        isSelect: false,
+        stile: styles.item
     }
 ]
 
-const Item = ({titolo}) => (
-    <View style={styles.item}> 
-        <Text style={styles.titoloRicetta_Ricetta}>{titolo}</Text>
-    </View>
-);
+//istanziamento array preferenze
+const preferenze = [];
 
-//schermo opzioni
-export default function opzioni( {navigation} ){
 
-    const renderItem = ({item}) => (<Item titolo={item.titolo}/>);
+export default function App() {
+    //stato che holda data per re-render flatlist
+    const [Data, SetData] = React.useState(data);
 
-    return(
-        <SafeAreaView style={styles.containerUtente}>
-            <ScrollView>
-            <Text>SELEZIONA COSA ELIMINARE:</Text>
+    //funzione che rimuove array preventivamente
+    const removeItem = async (stringa) =>{
+      try{
+        await AsyncStorage.removeItem(stringa);
+      }catch(e){console.log(e)}
+    }
+  
+    //funzione necessaria per render flatlist
+    const renderItem = ({ item }) => (
+      <TouchableOpacity onPress={() => selectItem(item.id)}>
+        <Text style={item.isSelect ? styles.itemSelected : styles.item}>
+          {item.titolo}
+        </Text>
+      </TouchableOpacity>
+    );
 
-            <FlatList
+    //funzione per settare l'array di preferenze
+    const setStringValue = async (preferenze) => {
+      try{
+        const jsonValue = JSON.stringify(preferenze);
+        await AsyncStorage.setItem('preferenza', jsonValue)
+      }catch(e){console.log(e)}
+    }
+
+    //funzione per togliere un elemento dall'array preferenze
+    const popItemPreferenze = (id) => {
+      for(let i=0; i<preferenze.length; i++){
+        if(preferenze[i] === id){
+          preferenze.splice(i, 1);
+        }
+      }
+    }
+  
+    //funzione per colore blocchi e per creare e mandare array, oppure cancellarne un elemento
+    const selectItem = (id) => {
+      let temp = [...Data];
+      for (let i = 0; i < temp.length; i++) {
+
+        if (temp[i].id === id) {
+          temp[i].isSelect = temp[i].isSelect ? false : true;
+
+          if(temp[i].isSelect){
+            removeItem('preferenza');
+            preferenze.push(id);
+            setStringValue(preferenze);
+          }
+          else{
+            removeItem('preferenza')
+            popItemPreferenze(temp[i].id);
+            setStringValue(preferenze);
+          }
+          break;
+        }
+      }
+      SetData(temp);
+    };
+
+    //return della funzione con flatlist + scrollview
+    return (
+      <SafeAreaView style={styles.containerUtente}>
+        <ScrollView>
+          <Text>SELEZIONA COSA ELIMINARE:</Text>
+  
+          <FlatList
             numColumns={4}
-            data={data}
+            data={Data} //la data dello stato!!
             renderItem={renderItem}
-            keyExtractor={item => item.id}
-            />
-
-            <Text>I tuoi preferiti!:</Text>
-
-            <Preferiti/>
-
-            <Text>v.1.0.0.2</Text>
-
-           </ScrollView>
-        </SafeAreaView>
-    )
-}
+            keyExtractor={(item) => item.id.toString()}
+            extraData={data}
+          />
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }

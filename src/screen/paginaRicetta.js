@@ -1,21 +1,21 @@
 //import
 import React from "react";
-import {ScrollView, Text, Button, Linking, BackHandler, Image } from "react-native"
+import {ScrollView, Text, Button, Linking, Image } from "react-native"
 
 //import miei file
 import {styles} from "../../Styles";
 
-
-
-//schermo opzioni
 export default function paginaRicetta( {route, navigation} ){
+    //prendo valori tramite route (funzione di navigation)
     const { title, image, calories, ingredients, url, numeroId, digest, yields, totalTime } = route.params;
     const macroValue = [];
 
+    //prendo i primi tre valori di digest(fat,carb,prot)
     for(var i = 0; i < 3; i++){
         macroValue.push(digest[i].total)
     }
 
+    //istanzio i valori e calcolo le percentuali 
     const fat = macroValue[0];
     const carb = macroValue[1];
     const prot = macroValue[2];
@@ -26,12 +26,12 @@ export default function paginaRicetta( {route, navigation} ){
     const plurale = (yields) => {if(yields==1) return "persona"; else return "persone"}
     const immediato = (totalTime) => {if(totalTime==0) return "immediato!"; else return <Text>solo {totalTime} minuti!</Text>}
     
-
+    //gestione link esterno per ricetta
     const handleClick = () => {
         Linking.openURL(url)
     }
-
-    //FIT
+    //inizio conditional rendering
+    //CATEGORIA FIT
     if(numeroId==1)
     return(
     <ScrollView style={styles.container}>
@@ -57,7 +57,8 @@ export default function paginaRicetta( {route, navigation} ){
         />
     </ScrollView>
     )
-    //TRADIZIONALE
+
+    //CATEGORIA TRADIZIONALE
     else if(numeroId==2)
     return(
     <ScrollView style={styles.container}>
@@ -75,9 +76,11 @@ export default function paginaRicetta( {route, navigation} ){
            onPress={handleClick}
            title="ricetta!"
            />
+           
     </ScrollView>
        )
-    //FACILE E VELOCE
+
+    //CATEGORIA FACILE E VELOCE
     else if(numeroId==3)
     return(
     <ScrollView style={styles.container}>
@@ -99,7 +102,8 @@ export default function paginaRicetta( {route, navigation} ){
         />
     </ScrollView>
     )
-    //PERSONALIZZATA
+
+    //CATEGORIA PERSONALIZZATA
      else if(numeroId==4)
      return(
      <ScrollView style={styles.container}>
@@ -119,6 +123,7 @@ export default function paginaRicetta( {route, navigation} ){
            />
      </ScrollView>
        )
+       //else di backup
     else return (
         <Text>Spiacenti! Pagina non trovata </Text>
     )

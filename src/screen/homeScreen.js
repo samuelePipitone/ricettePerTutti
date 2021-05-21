@@ -17,27 +17,25 @@ const stringaPersonalizzata = stringaRicerca(4);
 
 export default function HomeScreen( {navigation} ){
 
- 
     <StatusBar style="auto" />
 
-    //return principale
     return (
-<SafeAreaView style={styles.container}>
-
-        <Image style={styles.stileLogo} source={require("../images/logo.jpg")}/>
+        //contenitore 
+    <SafeAreaView style={styles.container}>
         
+        <Image style={styles.stileLogo} source={require("../images/logo.jpg")}/>
         
         <TouchableOpacity onPress= {() => navigation.navigate('utente')}>
             <Image source={require("../images/settings.png")} style={styles.option_homeScreen}/>
         </TouchableOpacity>
 
-  <ScrollView style={styles.container}>
+     <ScrollView style={styles.containerHome}>
 
        <TouchableOpacity onPress= {() => navigation.navigate('categoriaFit')}>
            <Text>clicca per vedere categoria Fit!</Text>
        </TouchableOpacity>
 
-            <GruppoRicetteHomeScreen stringa={stringaFit} numeroId={1} navigation={navigation}/>
+        <GruppoRicetteHomeScreen stringa={stringaFit} numeroId={1} navigation={navigation}/>
 
       <TouchableOpacity onPress= {() => navigation.navigate('categoriaTradizionale')}>
             <Text>clicca per vedere categoria tradizionale!</Text>
@@ -56,14 +54,9 @@ export default function HomeScreen( {navigation} ){
        </TouchableOpacity>
       
        
-       <GruppoRicetteHomeScreen stringa={stringaPersonalizzata} numeroId={4} navigation={navigation}/>
+      <GruppoRicetteHomeScreen stringa={stringaPersonalizzata} numeroId={4} navigation={navigation}/>
 
-      <TouchableOpacity onPress= {() => navigation.navigate('preferiti')}>
-           <Text>clicca per vedere categoria Preferiti!</Text>
-      </TouchableOpacity>
-         
-
-  </ScrollView>
+     </ScrollView>
 
 </SafeAreaView>
     );

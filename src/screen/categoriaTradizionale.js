@@ -12,8 +12,6 @@ import RicettaCategoria from "../components/RicettaCategoria.js";
 const APP_ID = '3dca0b91';
 const APP_KEY = '72b2bc992bdbafabe3b61df5dcbdc464';
 
-
-
 //schermo categoria
 export default function categoria( {navigation} ){
 

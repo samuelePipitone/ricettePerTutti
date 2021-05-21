@@ -1,6 +1,8 @@
+//import
 import React, { useEffect } from "react"
-import { FlatList } from "react-native"
+import { FlatList, View } from "react-native"
 
+//import miei file
 import RicettaHomeScreen from "./RicettaHomeScreen";
 
 export default function GruppoRicetteHomeScreen({stringa, numeroId, navigation}){
@@ -16,29 +18,31 @@ export default function GruppoRicetteHomeScreen({stringa, numeroId, navigation})
     const data2 = await response.json();
     setData(data2.hits);
   }
+
  return(
 
+    <View style={{flex:1}}>
     <FlatList
     horizontal={true}
     data={data}
     keyExtractor={(x, i) => i.toString()}
-    renderItem={({item}) =>
-
-    data.map(data => (
+    renderItem={({item}) => (
+      
         <RicettaHomeScreen 
-        key={data.recipe.calories}
-        title={data.recipe.label}
-        calories={(data.recipe.calories).toFixed(0)}
-        image={data.recipe.image}
-        ingredients={data.recipe.ingredients}
-        url={data.recipe.url}
+        key={item.recipe.calories}
+        title={item.recipe.label}
+        calories={(item.recipe.calories).toFixed(0)}
+        image={item.recipe.image}
+        ingredients={item.recipe.ingredients}
+        url={item.recipe.url}
         numeroId= {numeroId}
-        digest={data.recipe.digest}
-        yields={data.recipe.yield}
-        totalTime={data.recipe.totalTime}
+        digest={item.recipe.digest}
+        yields={item.recipe.yield}
+        totalTime={item.recipe.totalTime}
         navigation={navigation}/>
-       ))
+       )
     }
     />
+    </View>
  )
 }
