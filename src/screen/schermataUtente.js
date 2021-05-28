@@ -1,90 +1,89 @@
 //import
 import React from "react";
-import {SafeAreaView, Text, FlatList, TouchableOpacity} from "react-native"
-import { ScrollView } from "react-native-gesture-handler";
+import {SafeAreaView, Text, FlatList, TouchableOpacity, View, ScrollView} from "react-native"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //import miei file
 import {styles} from "../../Styles.js";
 
-//dati preferenze
+
 const data =[
-     {
-        titolo: "no alcol",
-        id: 1,
-        isSelect: false,
-        stile: styles.item
-      },
-    { 
-      titolo: "no crostacei",
-        id: 2,
-        isSelect: false,
-        stile: styles.item},
-    {
-        titolo: "no lattosio",
-        id: 3,
-        isSelect: false,
-        stile: styles.item
-      },
-    {
-        titolo: "no uova",
-        id: 4,
-        isSelect: false,
-        stile: styles.item
+  {
+     titolo: "no alcol",
+     id: 1,
+     isSelect: false,
+     stile: styles.item,
+   },
+ { 
+   titolo: "no crostacei",
+     id: 2,
+     isSelect: false,
+     stile: styles.item,
     },
-    {
-        titolo: "no pesce",
-        id: 5,
-        isSelect: false,
-        stile: styles.item
-    },
-    {
-        titolo: "no glutine",
-        id: 6,
-        isSelect: false,
-        stile: styles.item
-    },
-    {
-        titolo: "kosher",
-        id: 7,
-        isSelect: false,
-        stile: styles.item
-    },
-    {
-        titolo: "no noccioline",
-        id: 8,
-        isSelect: false,
-        stile: styles.item
-    },
-    {
-        titolo: "no maiale",
-        id: 9,
-        isSelect: false,
-        stile: styles.item
-    },
-    {
-        titolo: "vegana",
-        id: 10,
-        isSelect: false,
-        stile: styles.item
-    },
-    {
-        titolo: "vegetariana",
-        id: 11,
-        isSelect: false,
-        stile: styles.item
-    },
-    {
-        titolo: "no carne rossa",
-        id: 12,
-        isSelect: false,
-        stile: styles.item
-    }
+ {
+     titolo: "no lattosio",
+     id: 3,
+     isSelect: false,
+     stile: styles.item,
+   },
+ {
+     titolo: "no uova",
+     id: 4,
+     isSelect: false,
+     stile: styles.item,
+ },
+ {
+     titolo: "no pesce",
+     id: 5,
+     isSelect: false,
+     stile: styles.item,
+ },
+ {
+     titolo: "no glutine",
+     id: 6,
+     isSelect: false,
+     stile: styles.item,
+ },
+ {
+     titolo: "kosher",
+     id: 7,
+     isSelect: false,
+     stile: styles.item,
+ },
+ {
+     titolo: "no noccioline",
+     id: 8,
+     isSelect: false,
+     stile: styles.item,
+ },
+ {
+     titolo: "no maiale",
+     id: 9,
+     isSelect: false,
+     stile: styles.item,
+ },
+ {
+     titolo: "vegana",
+     id: 10,
+     isSelect: false,
+     stile: styles.item,
+ },
+ {
+     titolo: "vegetariana",
+     id: 11,
+     isSelect: false,
+     stile: styles.item,
+ },
+ {
+     titolo: "no carne rossa",
+     id: 12,
+     isSelect: false,
+     stile: styles.item,
+ }
 ]
 
 //istanziamento array preferenze
 const preferenze = [];
-
 
 export default function App() {
     //stato che holda data per re-render flatlist
@@ -99,10 +98,8 @@ export default function App() {
   
     //funzione necessaria per render flatlist
     const renderItem = ({ item }) => (
-      <TouchableOpacity onPress={() => selectItem(item.id)}>
-        <Text style={item.isSelect ? styles.itemSelected : styles.item}>
-          {item.titolo}
-        </Text>
+      <TouchableOpacity style={item.isSelect ? styles.itemSelected : styles.item} onPress={() => selectItem(item.id)}>
+        <Text style={styles.testoBlocco_schermataUtente}>{item.titolo}</Text>
       </TouchableOpacity>
     );
 
@@ -151,15 +148,16 @@ export default function App() {
     return (
       <SafeAreaView style={styles.containerUtente}>
         <ScrollView>
-          <Text>SELEZIONA COSA ELIMINARE:</Text>
-  
-          <FlatList
-            numColumns={4}
-            data={Data} //la data dello stato!!
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id.toString()}
-            extraData={data}
-          />
+          <View style={styles.blocchi_schermataUtente}>
+            <Text style={styles.testo_schermataUtente}>seleziona cosa eliminare:</Text>
+              <FlatList
+               numColumns={2}
+               data={Data} //la data nello stato
+               renderItem={renderItem}
+               keyExtractor={(item) => item.id.toString()}
+               extraData={data}
+            />
+          </View>
         </ScrollView>
       </SafeAreaView>
     );

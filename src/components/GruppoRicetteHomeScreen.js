@@ -4,13 +4,14 @@ import { FlatList, View } from "react-native"
 
 //import miei file
 import RicettaHomeScreen from "./RicettaHomeScreen";
+import { styles } from "../../Styles";
 
 export default function GruppoRicetteHomeScreen({stringa, numeroId, navigation}){
 
-    const [data, setData] = React.useState([]);
+  const [data, setData] = React.useState([]);
 
-    useEffect(() => {
-      getRecipes();
+  useEffect(() => {
+    getRecipes();
   }, [])
   
   const getRecipes = async () => {
@@ -21,7 +22,7 @@ export default function GruppoRicetteHomeScreen({stringa, numeroId, navigation})
 
  return(
 
-    <View style={{flex:1}}>
+<View style={styles.container_GruppoRicetteHomeScreen}>
     <FlatList
     horizontal={true}
     data={data}
@@ -43,6 +44,6 @@ export default function GruppoRicetteHomeScreen({stringa, numeroId, navigation})
        )
     }
     />
-    </View>
+</View>
  )
 }

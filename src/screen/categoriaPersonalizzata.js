@@ -130,6 +130,8 @@ export default function categoria( {navigation} ){
          ingredients={data.recipe.ingredients}
          url={data.recipe.url}
          numeroId={4}
+         digest={data.recipe.digest}
+         yields={data.recipe.yield}
          navigation={navigation}/>
          
         ))}

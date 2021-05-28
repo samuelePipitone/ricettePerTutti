@@ -49,9 +49,10 @@ export default function categoria( {navigation} ){
          onChangeText={onChangeSearch}
          value={richiesta}
          onIconPress={getSearch}
+         onSubmitEditing={getSearch}
          />
 
-       <ScrollView style={styles.container_paginaCategoria}>
+       <ScrollView style={styles.container_categorie}>
 
         {data.map(data => (
          <RicettaCategoria 

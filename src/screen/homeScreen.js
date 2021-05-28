@@ -1,6 +1,6 @@
 //IMPORT LIBRERIE
 import { StatusBar } from 'expo-status-bar';
-import {  Text, Image, SafeAreaView, TouchableOpacity, ScrollView, FlatList } from 'react-native';
+import {  Text, Image, SafeAreaView, TouchableOpacity, ScrollView, View } from 'react-native';
 import React from "react";
 
 //import miei file
@@ -14,50 +14,56 @@ const stringaTradizionale = stringaRicerca(2);
 const stringaVeloce = stringaRicerca(3);
 const stringaPersonalizzata = stringaRicerca(4);
 
-
 export default function HomeScreen( {navigation} ){
 
-    <StatusBar style="auto" />
+    <StatusBar style="auto"/>
 
     return (
-        //contenitore 
     <SafeAreaView style={styles.container}>
+
+        <View style={styles.containerFoto_homeScreen}>
+                <Image style={styles.stileLogo_homeScreen} source={require("../images/logo.jpg")}/>
         
-        <Image style={styles.stileLogo} source={require("../images/logo.jpg")}/>
-        
-        <TouchableOpacity onPress= {() => navigation.navigate('utente')}>
-            <Image source={require("../images/settings.png")} style={styles.option_homeScreen}/>
-        </TouchableOpacity>
+                <TouchableOpacity onPress= {() => navigation.navigate('utente')} style={{left:'88%'}}>
+                    <Image source={require("../images/settings.png")} style={styles.option_homeScreen}/>
+                </TouchableOpacity>
+        </View>
 
-     <ScrollView style={styles.containerHome}>
+    <ScrollView style={styles.containerHome}>
 
-       <TouchableOpacity onPress= {() => navigation.navigate('categoriaFit')}>
-           <Text>clicca per vedere categoria Fit!</Text>
-       </TouchableOpacity>
+        <View style={styles.gruppoRicette_homeScreen}>
+             <TouchableOpacity onPress= {() => navigation.navigate('categoriaFit')}>
+                 <Text style={styles.categoriaFit_homeScreen}>categoria Fit! {"->"}</Text>
+            </TouchableOpacity>
 
-        <GruppoRicetteHomeScreen stringa={stringaFit} numeroId={1} navigation={navigation}/>
+            <GruppoRicetteHomeScreen stringa={stringaFit} numeroId={1} navigation={navigation}/>
+        </View>
 
-      <TouchableOpacity onPress= {() => navigation.navigate('categoriaTradizionale')}>
-            <Text>clicca per vedere categoria tradizionale!</Text>
-      </TouchableOpacity>
+        <View style={styles.gruppoRicette_homeScreen}>
+             <TouchableOpacity onPress= {() => navigation.navigate('categoriaTradizionale')}>
+                 <Text style={styles.categoria_homeScreen}>categoria tradizionale! {"->"}</Text>
+              </TouchableOpacity>
 
-      <GruppoRicetteHomeScreen stringa={stringaTradizionale} numeroId={2} navigation={navigation}/>
-
-      <TouchableOpacity onPress= {() => navigation.navigate('categoriaFacile')}>
-         <Text>clicca per vedere categoria facile e veloce!</Text>
-      </TouchableOpacity>
+              <GruppoRicetteHomeScreen stringa={stringaTradizionale} numeroId={2} navigation={navigation}/>
+        </View>
+ 
+        <View style={styles.gruppoRicette_homeScreen}>
+             <TouchableOpacity onPress= {() => navigation.navigate('categoriaFacile')}>
+                 <Text style={styles.categoria_homeScreen}>categoria facile e veloce! {"->"}</Text>
+             </TouchableOpacity>
       
-      <GruppoRicetteHomeScreen stringa={stringaVeloce} numeroId={3} navigation={navigation}/>
-    
-      <TouchableOpacity onPress= {() => navigation.navigate('categoriaPersonalizzata')}>
-         <Text>clicca per vedere categoria Personalizzato!</Text>
-       </TouchableOpacity>
-      
+             <GruppoRicetteHomeScreen stringa={stringaVeloce} numeroId={3} navigation={navigation}/>
+        </View>
+
+        <View style={styles.gruppoRicette_homeScreen}>
+            <TouchableOpacity onPress= {() => navigation.navigate('categoriaPersonalizzata')}>
+                 <Text style={styles.categoria_homeScreen}>categoria Personalizzata! {"->"}</Text>
+             </TouchableOpacity>
        
-      <GruppoRicetteHomeScreen stringa={stringaPersonalizzata} numeroId={4} navigation={navigation}/>
+             <GruppoRicetteHomeScreen stringa={stringaPersonalizzata} numeroId={4} navigation={navigation}/>
+         </View>
 
-     </ScrollView>
-
-</SafeAreaView>
-    );
+    </ScrollView>
+    </SafeAreaView>
+    )
   }

@@ -49,6 +49,7 @@ export default function categoria( {navigation} ){
          onChangeText={onChangeSearch}
          value={richiesta}
          onIconPress={getSearch}
+         onSubmitEditing={getSearch}
          />
 
        <ScrollView style={styles.container_paginaCategoria}>
@@ -62,6 +63,8 @@ export default function categoria( {navigation} ){
          ingredients={data.recipe.ingredients}
          url={data.recipe.url}
          numeroId= {3}
+         digest= {data.recipe.digest}
+         yields = {data.recipe.yield}
          totalTime={data.recipe.totalTime}   
          navigation={navigation}/>
          
