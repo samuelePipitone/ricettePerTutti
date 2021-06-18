@@ -77,9 +77,7 @@ export default function categoria( {navigation} ){
               digest= {data.recipe.digest}
               yields = {data.recipe.yield}
               navigation={navigation}/>
-              
              ))}
-             
             </ScrollView>
         </SafeAreaView>
      

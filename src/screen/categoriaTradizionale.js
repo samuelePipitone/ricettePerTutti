@@ -2,6 +2,7 @@
 import React from "react";
 import { useEffect, useState } from 'react';
 import {ScrollView, SafeAreaView, View, Dimensions, Image, TouchableOpacity} from "react-native";
+
 import { Searchbar } from 'react-native-paper';
 
 //miei import

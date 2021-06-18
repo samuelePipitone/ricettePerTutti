@@ -2,6 +2,7 @@
 import React from "react";
 import { useEffect, useState } from 'react';
 import {ScrollView, SafeAreaView, View, Image, Dimensions, TouchableOpacity} from "react-native";
+
 import { Searchbar } from 'react-native-paper';
 
 //miei import
@@ -32,6 +33,7 @@ export default function categoria( {navigation} ){
         const response = await fetch(`https://api.edamam.com/search?q=${ricerca}&app_id=${APP_ID}&app_key=${APP_KEY}`);
         const data2 = await response.json();
         setData(data2.hits);
+
     }
 
     //funzione ricerca (solo scrittura)
@@ -85,3 +87,4 @@ export default function categoria( {navigation} ){
      
          ) 
 }
+

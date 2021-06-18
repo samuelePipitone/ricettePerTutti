@@ -28,6 +28,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+
        <Stack.Screen
         name = "loadingPage"
         component={loadingPage}
@@ -46,42 +47,42 @@ export default function App() {
         component={schermataUtente}
         options={{
           title: 'Impostazioni',
-          headerShown: false
+          headerShown: false,
       }}/>
         <Stack.Screen 
         name = "categoriaFit" 
         component={categoriaFit}
         options={{
           title: 'Categoria fit',
-          headerShown: false
+          headerShown: false,
       }}/>
         <Stack.Screen 
         name = "categoriaTradizionale" 
         component={categoriaTradizionale}
         options={{
           title: 'Categoria tradizionale',
-          headerShown: false
+          headerShown: false,
       }}/>
         <Stack.Screen 
         name = "categoriaFacile" 
         component={categoriaFacile}
         options={{
           title: 'Categoria facile',
-          headerShown: false
+          headerShown: false,
       }}/>
         <Stack.Screen 
         name = "categoriaPersonalizzata" 
         component={categoriaPersonalizzata}
         options={{
           title: 'Categoria personalizzata',
-          headerShown: false
+          headerShown: false,
       }}/>
         <Stack.Screen 
         name = "ricetta" 
         component={paginaRicetta}
         options={{
           title: 'Ricetta',
-          headerShown: false
+          headerShown: false,
       }}/>
         
         </Stack.Navigator>

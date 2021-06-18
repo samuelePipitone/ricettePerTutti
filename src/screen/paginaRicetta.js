@@ -59,7 +59,8 @@ export default function paginaRicetta( {route, navigation} ){
 
             <View style={styles.tabellaNutrizionale_paginaRicetta}>
                 <View style={{ flexDirection: 'row'}}>
-                    <MaterialCommunityIcons name="fire" size={dimension.width/20} color={'#910055'}/>
+                   <MaterialCommunityIcons name="fire" size={dimension.width/20} color={'#910055'}/>
+
                     <Text style={styles.calories_paginaRicetta}>{Math.round(kcalPerPersona)} Kcal per persona</Text> 
                 </View>
                 <View style={{ flexDirection: 'row'}}>

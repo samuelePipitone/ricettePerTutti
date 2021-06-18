@@ -2,6 +2,7 @@
 import React from "react";
 import { useEffect, useState } from 'react';
 import {ScrollView, SafeAreaView, View, Image, Dimensions, TouchableOpacity} from "react-native";
+
 import { Searchbar } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
