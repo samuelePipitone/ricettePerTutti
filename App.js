@@ -14,7 +14,6 @@ import categoriaFacile from "./src/screen/categoriaFacile";
 import categoriaPersonalizzata from "./src/screen/categoriaPersonalizzata";
 import categoriaFit from "./src/screen/categoriaFit";
 import schermataUtente from "./src/screen/schermataUtente";
-import {styles} from './Styles';
 import loadingPage from './src/screen/loadingPage';
 
 
@@ -47,7 +46,15 @@ export default function App() {
         component={schermataUtente}
         options={{
           title: 'Impostazioni',
-          headerShown: false,
+          headerStyle: {
+            backgroundColor: 'green'
+          },
+          headerTintColor: 'white',
+          headerTitleStyle:{
+            marginLeft: '20%',
+            fontWeight: '700',
+            letterSpacing: 1
+          }
       }}/>
         <Stack.Screen 
         name = "categoriaFit" 
@@ -83,8 +90,7 @@ export default function App() {
         options={{
           title: 'Ricetta',
           headerShown: false,
-      }}/>
-        
+      }}/>  
         </Stack.Navigator>
         </NavigationContainer>
     

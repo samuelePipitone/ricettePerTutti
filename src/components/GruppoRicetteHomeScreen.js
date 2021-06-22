@@ -40,6 +40,10 @@ export default function GruppoRicetteHomeScreen({stringa, numeroId, navigation})
         digest={item.recipe.digest}
         yields={item.recipe.yield}
         totalTime={item.recipe.totalTime}
+        healthLabels={item.recipe.healthLabels}
+        cuisineType={item.recipe.cuisineType}
+        mealType={item.recipe.mealType}
+        cautions={item.recipe.cautions}
         navigation={navigation}/>
        )
     }

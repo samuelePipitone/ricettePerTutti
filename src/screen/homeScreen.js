@@ -1,8 +1,7 @@
 //IMPORT LIBRERIE
 import { StatusBar } from 'expo-status-bar';
 import {  Text, Image, SafeAreaView, TouchableOpacity, ScrollView, View } from 'react-native';
-import React, { useEffect } from "react";
-import { Searchbar } from 'react-native-paper';
+import React from "react";
 
 
 //import miei file
@@ -18,8 +17,6 @@ const stringaPersonalizzata = stringaRicerca(4);
 
 export default function HomeScreen( {navigation} ){
 
-    <StatusBar style="auto"/>
-
     return (
     <SafeAreaView style={styles.container}>
 
@@ -28,9 +25,6 @@ export default function HomeScreen( {navigation} ){
             <TouchableOpacity onPress= {() => navigation.navigate('utente')} style={styles.containerCliccabile_homeScreen}>
                 <Image source={require("../images/settings.png")} style={styles.option_homeScreen}/>
             </TouchableOpacity>
-                <Searchbar
-                style={styles.barraRicerca_homeScreen}
-                />
         </View>
         
     <ScrollView style={styles.containerHome}>

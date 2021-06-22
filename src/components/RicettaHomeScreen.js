@@ -12,11 +12,12 @@ const dimension = Dimensions.get('window')
 //funzione componente ricetta
 export default function RicettaHomeScreen(
     {title, calories, image , ingredients, url, numeroId, 
-    digest, yields, totalTime, navigation} ){
+    digest, yields, totalTime, healthLabels, cuisineType,
+    mealType, cautions, navigation} ){
                                        
     return(
     <View style={styles.container_ricettaHomeScreen}>
-        <TouchableWithoutFeedback style={styles.bloccoSuperiore_ricettaHomeScreen} onPress= {() => navigation.navigate('ricetta', {
+        <TouchableWithoutFeedback style={styles.bloccoSuperiore_ricettaHomeScreen} onPress= {() => navigation.push('ricetta', {
              title: title,
              image: image,
              calories: calories,
@@ -25,7 +26,11 @@ export default function RicettaHomeScreen(
              numeroId: numeroId,
              digest: digest,
              yields: yields,
-             totalTime: totalTime  })}>
+             totalTime: totalTime,
+             healthLabels: healthLabels,
+             cuisineType: cuisineType,
+             mealType: mealType,
+             cautions: cautions  })}>
             <Image style={styles.immagineRicetta_ricettaHomeScreen} source={{uri: image}}/>
         </TouchableWithoutFeedback>  
 

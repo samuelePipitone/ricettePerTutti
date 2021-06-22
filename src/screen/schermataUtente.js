@@ -1,10 +1,11 @@
 //import
 import React from "react";
-import {SafeAreaView, Text, FlatList, TouchableOpacity, View} from "react-native"
+import {SafeAreaView, Text, FlatList, TouchableOpacity, View, Dimensions} from "react-native"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //import miei file
 import {styles} from "../../Styles.js";
+const dimension = Dimensions.get('window');
 
 
 const data =[
@@ -99,7 +100,10 @@ export default function App() {
     //funzione necessaria per render flatlist
     const renderItem = ({ item }) => (
       <TouchableOpacity style={item.isSelect ? styles.itemSelected : styles.item} onPress={() => selectItem(item.id)}>
-        <Text style={styles.testoBlocco_schermataUtente}>{item.titolo}</Text>
+        <Text style={item.isSelect ? 
+          styles.selectedTestoBlocco_schermataUtente :
+          styles.testoBlocco_schermataUtente 
+          }>{item.titolo}</Text>
       </TouchableOpacity>
     );
 
@@ -148,7 +152,7 @@ export default function App() {
     return (
       <SafeAreaView style={styles.containerUtente}>
           <View style={styles.blocchi_schermataUtente}>
-            <Text style={styles.testo_schermataUtente}>seleziona cosa eliminare:</Text>
+            <Text style={styles.testo_schermataUtente}>Seleziona cosa eliminare:</Text>
               <FlatList
                numColumns={2}
                data={Data} //la data nello stato

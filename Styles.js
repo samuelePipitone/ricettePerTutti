@@ -81,7 +81,7 @@ export const styles = StyleSheet.create({
       alignSelf: 'center'
     },
     containerCliccabile_homeScreen:{
-      left: imageWidth*0.70,
+      left: imageWidth*0.3,
       height: imageHeight/8,
       width: imageWidth/8,
       marginTop: '3%',
@@ -90,6 +90,7 @@ export const styles = StyleSheet.create({
       width: imageWidth/6,
       height: '100%',
       resizeMode: 'contain',
+      marginLeft: '40%'
     },
     //FINE HOMESCREEN
 
@@ -164,41 +165,50 @@ export const styles = StyleSheet.create({
       backgroundColor: 'white',
     },
     bloccoSuperiore_paginaRicetta:{
-      marginBottom: imageHeight/5,
+      marginBottom: imageHeight/10,
       backgroundColor: 'white',
+      borderBottomWidth: 1,
+      borderBottomColor: '#9e9e9e',
+      borderTopWidth: 1,
+      borderTopColor: '#9e9e9e'
     },
     immagineRicetta_paginaRicetta:{
       resizeMode: 'stretch',
       height: imageHeight*(13/9),
       width: '100%',
-      marginTop: '6%'
     },
     bloccoInferiore_paginaRicetta:{
     },
     titoloRicetta_paginaRicetta:{
       fontSize: imageWidth/12,
       fontWeight: 'bold',
-      alignSelf: 'center',
-      marginVertical: imageHeight/80,
       color: '#003809',
-      marginLeft: '3%'
+      marginLeft: '2%'
     },
     containerTitolo_paginaRicetta:{
-      marginBottom: imageHeight/10
     },
     tabellaNutrizionale_paginaRicetta:{
       flex: 1,
-      alignItems: 'center',
-      marginTop: imageHeight/8
+      marginLeft: imageWidth/10,
+      marginRight: imageWidth/10,
+      borderColor: '#b5b5b5',
+      borderWidth: 1,
+      marginTop: imageHeight/4,
+      backgroundColor: '#f5f5f5'
     },
     calories_paginaRicetta:{
       alignSelf: 'center',
-      marginLeft: imageWidth/80
+      marginLeft: imageWidth/60,
+      marginBottom: imageHeight/110
     },
     ingredienti_paginaRicetta:{
       fontSize: 18,
       marginTop: imageHeight/3,
       backgroundColor: '#eeeeee',
+      borderTopWidth: 1,
+      borderTopColor: '#d6d6d6',
+      borderBottomWidth: 1,
+      borderBottomColor: '#d6d6d6',
     },
     titoloIngredienti_paginaRicetta:{
       marginBottom: imageHeight/10,
@@ -242,12 +252,32 @@ export const styles = StyleSheet.create({
       fontWeight: 'bold',
       letterSpacing: 1
     },
+    logo_paginaRicetta:{
+      width: imageWidth/10,
+      height: '100%',
+      resizeMode: 'contain',
+      marginLeft: imageWidth/40
+    },
+    ingredienti1_paginaRicetta:{
+      marginTop: dimension.height/200,
+      marginBottom: dimension.height/100,
+      borderBottomWidth: 1,
+      borderColor: '#cccccc',
+      marginRight: '7%',
+      marginLeft: '7%'
+    },
+    ingredienti2_paginaRicetta:{
+      marginTop: dimension.height/200,
+      marginBottom: dimension.height/250,
+      marginRight: '7%',
+      marginLeft: '7%'
+    },
     //FINE PAGINA CATEGORIA
 
     //PAGINA RICETTA CATEGORIA
     immagineRicetta_ricettaCategoria:{
       width: imageWidth/4,
-      height: imageHeight/2.05,
+      height: imageHeight/2.03,
       resizeMode: 'cover',
       borderTopLeftRadius: 10,
       borderBottomLeftRadius: 10
@@ -267,7 +297,7 @@ export const styles = StyleSheet.create({
     titoloRicetta_ricettaCategoria:{
       fontSize: imageWidth/22,
       fontWeight: 'bold',
-      marginLeft: '3%',
+      marginLeft: '4%',
       color: '#003809'
     },
     bloccoSuperiore_ricettaCategoria:{
@@ -275,22 +305,24 @@ export const styles = StyleSheet.create({
       marginTop: '6%',
       width: imageWidth/4,
       height: imageHeight/2,
-      borderBottomColor: '#d3ebd4',
-      borderTopColor: '#d3ebd4',
+      borderBottomColor: '#d0dbd1',
+      borderTopColor: '#d0dbd1',
       borderTopWidth: 1,
       borderBottomWidth: 1,
-      borderLeftColor: '#d3ebd4',
+      borderLeftColor: '#d0dbd1',
       borderLeftWidth: 1,
+      borderTopLeftRadius: 10,
+      borderBottomLeftRadius: 10
     },
     bloccoInferiore_ricettaCategoria:{
       backgroundColor: 'white',
       width: imageWidth/1.7,
       height: imageHeight/2,
       marginTop: '6%',
-      borderRightColor: '#d3ebd4',
+      borderRightColor: '#d0dbd1',
       borderRightWidth: 1,
-      borderBottomColor: '#d3ebd4',
-      borderTopColor: '#d3ebd4',
+      borderBottomColor: '#d0dbd1',
+      borderTopColor: '#d0dbd1',
       borderTopWidth: 1,
       borderBottomWidth: 1,
       borderTopRightRadius: 10,
@@ -352,7 +384,6 @@ export const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: "white",
       flexDirection: "row",
-      marginTop: '6%',
     },
     testo_schermataUtente:{
       fontWeight: 'bold',
@@ -362,13 +393,33 @@ export const styles = StyleSheet.create({
       marginTop: imageHeight/20
     },
     blocchi_schermataUtente:{
-      alignSelf: 'center'
+      alignSelf: 'center',
+      marginTop: '12%'
     },
     testoBlocco_schermataUtente:{
       alignSelf: 'center',
       fontWeight: 'bold',
-      marginTop: '10%'
+      marginTop: '12%',
+      color: 'black'
     },
+    selectedTestoBlocco_schermataUtente:{
+      alignSelf: 'center',
+      fontWeight: 'bold',
+      marginTop: '12%',
+      color: 'white'
+    },
+    grasso:{
+      color: 'red'
+    },
+    magro: {
+      color: 'black'
+    },
+    proteico:{
+      color: 'green'
+    }, 
+    nonProteico:{
+      color: 'black'
+    }
    
     //FINE SCHERMATA UTENTE
   });

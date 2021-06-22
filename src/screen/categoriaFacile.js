@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect } from 'react';
 import {ScrollView, SafeAreaView, View, TouchableOpacity, Image, Dimensions} from "react-native";
 import { Searchbar } from 'react-native-paper';
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 //miei import
 import {styles} from "../../Styles.js";
@@ -47,11 +48,10 @@ export default function categoria( {navigation} ){
         <SafeAreaView style={styles.container_paginaCategoria}>
             <View style={styles.barraSuperiore_paginaCategoria}>
               <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                <Image source={require('../images/back.png')}
-                style={{height:'80%', width: dimension.width/8, resizeMode: 'contain'}}/>
+                <Ionicons name={'arrow-back'} size={dimension.width/8}/>
               </TouchableOpacity>
               <Searchbar
-              placeholder="Cerca in fit"
+              placeholder="Cerca in facile"
               onChangeText={onChangeSearch}
               value={richiesta}
               onIconPress={getSearch}
@@ -76,6 +76,7 @@ export default function categoria( {navigation} ){
               numeroId={3}
               digest= {data.recipe.digest}
               yields = {data.recipe.yield}
+              mealType = {data.recipe.mealType}
               navigation={navigation}/>
              ))}
             </ScrollView>

@@ -5,7 +5,7 @@ import {ScrollView, SafeAreaView, View, Image, Dimensions, TouchableOpacity} fro
 
 import { Searchbar } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 //miei import
 import {styles} from "../../Styles.js";
@@ -116,11 +116,10 @@ export default function categoria( {navigation} ){
         <SafeAreaView style={styles.container_paginaCategoria}>
             <View style={styles.barraSuperiore_paginaCategoria}>
               <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                <Image source={require('../images/back.png')}
-                style={{height:'80%', width: dimension.width/8, resizeMode: 'contain'}}/>
+                <Ionicons name={'arrow-back'} size={dimension.width/8}/>
               </TouchableOpacity>
               <Searchbar
-              placeholder="Cerca in fit"
+              placeholder="Cerca in personalizzata"
               onChangeText={onChangeSearch}
               value={richiesta}
               onIconPress={getSearch}
@@ -145,6 +144,8 @@ export default function categoria( {navigation} ){
               numeroId={4}
               digest= {data.recipe.digest}
               yields = {data.recipe.yield}
+              healthLabels={data.recipe.healthLabels}
+              mealType = {data.recipe.mealType}
               navigation={navigation}/>
               
              ))}
