@@ -15,9 +15,10 @@ export default function GruppoRicetteHomeScreen({stringa, numeroId, navigation})
   }, [])
   
   const getRecipes = async () => {
+    try{
     const response = await fetch(stringa);
     const data2 = await response.json();
-    setData(data2.hits);
+    setData(data2.hits);} catch(err){console.log(err)};
   }
 
  return(

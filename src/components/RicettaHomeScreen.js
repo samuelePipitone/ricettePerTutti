@@ -37,7 +37,22 @@ export default function RicettaHomeScreen(
     <View style={styles.bloccoInferiore_RicettaHomeScreen}>
 
         <View style={styles.title_ricettaHomeScreen}>
-             <Text style={styles.titoloRicetta_homeScreen} numberOfLines={1} ellipsizeMode={'tail'}>{title}</Text>
+            <TouchableWithoutFeedback style={styles.bloccoSuperiore_ricettaHomeScreen} onPress= {() => navigation.push('ricetta', {
+             title: title,
+             image: image,
+             calories: calories,
+             ingredients: ingredients,
+             url: url,
+             numeroId: numeroId,
+             digest: digest,
+             yields: yields,
+             totalTime: totalTime,
+             healthLabels: healthLabels,
+             cuisineType: cuisineType,
+             mealType: mealType,
+             cautions: cautions  })}>
+            <Text style={styles.titoloRicetta_homeScreen} numberOfLines={1} ellipsizeMode={'tail'}>{title}</Text>
+            </TouchableWithoutFeedback>    
         </View>
 
         <View style={styles.decorazioni_ricettaHomeScreen}>

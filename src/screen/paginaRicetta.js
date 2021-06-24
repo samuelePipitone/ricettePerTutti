@@ -9,11 +9,12 @@ import Foundation from "react-native-vector-icons/Foundation";
 
 //import miei file
 import {styles} from "../../Styles";
+import Consigli from "../components/Consigli";
 
 export default function paginaRicetta( {route, navigation} ){
     //prendo valori tramite route (funzione di navigation)
     const { title, image, calories, ingredients, url, numeroId, digest,
-            yields, totalTime, healthLabels, cuisineType, mealType, cautions } = route.params;
+            yields, totalTime, healthLabels, cuisineType, cautions } = route.params;
     const macroValue = [];
     
 
@@ -31,7 +32,6 @@ export default function paginaRicetta( {route, navigation} ){
     const protPercentage = ((prot/(fat + carb + prot))*100)
     const kcalPerPersona = (calories/yields)
     const plurale = (yields) => {if(yields==1) return "persona"; else return "persone"}
-    const immediato = (totalTime) => {if(totalTime==0) return "immediato!"; else return <Text>solo {totalTime} minuti!</Text>}
     const dimension = Dimensions.get('window');
     let prova = '';
     const lunghezza = ingredients.length;
@@ -50,17 +50,20 @@ export default function paginaRicetta( {route, navigation} ){
     if(numeroId==1)
     return(
     <SafeAreaView>
-    <ScrollView style={styles.container_paginaRicetta}>
-
-        <TouchableOpacity style={{
-            marginTop: '5%',
+        <View style={{flexDirection:'row', backgroundColor: 'white', borderBottomWidth: 1,
+      borderBottomColor: '#9e9e9e',  }}>
+          <TouchableOpacity style={{
+            marginTop: '3%',
             marginBottom: '2%', 
-            height: dimension.height/18,
             widht: dimension.width,
-            marginLeft: '2%'
+            marginLeft: '2%',
+            top: '2%'      
             }} onPress={() => navigation.goBack()}>
                 <Ionicons name={'arrow-back'} size={dimension.width/8}/>
         </TouchableOpacity>
+        </View>
+
+    <ScrollView style={styles.container_paginaRicetta}>
 
         <View style={styles.bloccoSuperiore_paginaRicetta}>
             <Image style={styles.immagineRicetta_paginaRicetta} source={{uri: image}}/> 
@@ -116,14 +119,14 @@ export default function paginaRicetta( {route, navigation} ){
                     </View>
                     <View style={{alignItems: 'flex-end',marginLeft:'20%'}}>
                         <Text style={(fatPercentage > 35) ? styles.grasso : styles.magro}> {(fatPercentage).toFixed(0)}%</Text>
-                        <Text style={{}}>{(carbPercentage).toFixed(0)}%</Text>
+                        <Text style={(carbPercentage > 65) ? styles.carboidratiAlti : styles.carboidratiBassi}>{(carbPercentage).toFixed(0)}%</Text>
                         <Text style={(protPercentage > 35) ? styles.proteico : styles.nonProteico}> {(protPercentage).toFixed(0)}%</Text>
                     </View>
                 </View>
                 <View style={{
                     marginBottom: dimension.height/35, 
                     marginLeft:dimension.width/20}}>
-                    {cautions.length > 0 && (
+                    {(typeof(cautions)) != 'undefined' && cautions.length > 0 && (
                     cautions.map((caution, index) => (
                         <View key={index} style={{flexDirection:'row',}}>
                             <Foundation name={'alert'} key={index+20} size={dimension.width/20} color={'#e38512'}/>
@@ -132,8 +135,9 @@ export default function paginaRicetta( {route, navigation} ){
                     ))
                     )}
                 </View>
-            
             </View>    
+
+            <Consigli id={1} fat={fatPercentage} prot={protPercentage} carb={carbPercentage}/>
 
             <View style={styles.ingredienti_paginaRicetta}>
                 <Text style={styles.titoloIngredienti_paginaRicetta}>Ingredienti:</Text>
@@ -164,7 +168,14 @@ export default function paginaRicetta( {route, navigation} ){
             <View style={styles.linkRicetta_paginaRicetta}>
                 <Text style={styles.testoLink_paginaRicetta}>Preparazione:</Text>
                     <TouchableOpacity onPress = {() => {handleClick()}}>
-                        <View style={styles.bottone_paginaRicetta}  >
+                        <View style={{  
+                            backgroundColor: '#00520d',
+                            height: dimension.height/12,
+                            width: dimension.width/2,
+                            borderRadius: 17,
+                            alignSelf: 'center',
+                            marginBottom: dimension.height/6,
+                            marginTop: dimension.height/22}}  >
                             <Text style={styles.testoBottone_paginaRicetta}>Ricetta</Text>
                         </View>
                     </TouchableOpacity>
@@ -178,18 +189,22 @@ export default function paginaRicetta( {route, navigation} ){
     else if(numeroId==2)
     return(
         <SafeAreaView style={{flex:1}}>
-        <ScrollView style={styles.container_paginaRicetta}>
-    
-        <TouchableOpacity style={{
-            marginTop: '6%', 
-            marginBottom: '2%',
-            marginLeft: '2%',
-            height: dimension.height/18,
+
+<View style={{flexDirection:'row', backgroundColor: 'white', borderBottomWidth: 1,
+      borderBottomColor: '#9e9e9e',  }}>
+          <TouchableOpacity style={{
+            marginTop: '3%',
+            marginBottom: '2%', 
             widht: dimension.width,
+            marginLeft: '2%',
+            top: '2%'      
             }} onPress={() => navigation.goBack()}>
                 <Ionicons name={'arrow-back'} size={dimension.width/8}/>
         </TouchableOpacity>
+        </View>
 
+        <ScrollView style={styles.container_paginaRicetta}>
+    
             <View style={styles.bloccoSuperiore_paginaRicetta}>
                 <Image style={styles.immagineRicetta_paginaRicetta} source={{uri: image}}/>
             </View>
@@ -239,7 +254,7 @@ export default function paginaRicetta( {route, navigation} ){
                         <Ionicons name="people" size={dimension.width/20}/>
                         <Text style={{ marginLeft: dimension.width/60, marginBottom: dimension.height/110}}>Ricetta per {yields} {plurale(yields)}</Text>
                     </View>
-                    { cuisineType.length > 0 &&
+                    { (typeof(cuisineType) != 'undefined') &&  cuisineType.length > 0 &&
                     <View>
                         {cuisineType.map((type, index) => (
                             <View key={index} style={{ 
@@ -253,8 +268,7 @@ export default function paginaRicetta( {route, navigation} ){
                         ))}
                     </View>
                     }
-
-                </View>    
+                </View>  
     
                 <View style={styles.ingredienti_paginaRicetta}>
                 <Text style={styles.titoloIngredienti_paginaRicetta}>Ingredienti:</Text>
@@ -299,17 +313,21 @@ export default function paginaRicetta( {route, navigation} ){
     else if(numeroId==3)
     return(
         <SafeAreaView style={{flex:1}}>
-        <ScrollView style={styles.container_paginaRicetta}>
-    
-        <TouchableOpacity style={{
-            marginTop: '6%', 
-            marginBottom: '2%',
-            marginLeft: '2%',
-            height: dimension.height/18,
+
+<View style={{flexDirection:'row', backgroundColor: 'white', borderBottomWidth: 1,
+      borderBottomColor: '#9e9e9e',  }}>
+          <TouchableOpacity style={{
+            marginTop: '3%',
+            marginBottom: '2%', 
             widht: dimension.width,
+            marginLeft: '2%',
+            top: '2%'      
             }} onPress={() => navigation.goBack()}>
-               <Ionicons name={'arrow-back'} size={dimension.width/8}/>
+                <Ionicons name={'arrow-back'} size={dimension.width/8}/>
         </TouchableOpacity>
+        </View>
+
+        <ScrollView style={styles.container_paginaRicetta}>
 
             <View style={styles.bloccoSuperiore_paginaRicetta}>
                 <Image style={styles.immagineRicetta_paginaRicetta} source={{uri: image}}/>
@@ -396,18 +414,22 @@ export default function paginaRicetta( {route, navigation} ){
      else if(numeroId==4)
      return(
         <SafeAreaView style={{flex:1}}>
-        <ScrollView style={styles.container_paginaRicetta}>
-    
-        <TouchableOpacity style={{
-            marginTop: '6%', 
-            marginBottom: '2%',
-            marginLeft: '2%',
-            height: dimension.height/18,
+
+<View style={{flexDirection:'row', backgroundColor: 'white', borderBottomWidth: 1,
+      borderBottomColor: '#9e9e9e',  }}>
+          <TouchableOpacity style={{
+            marginTop: '3%',
+            marginBottom: '2%', 
             widht: dimension.width,
+            marginLeft: '2%',
+            top: '2%'      
             }} onPress={() => navigation.goBack()}>
                 <Ionicons name={'arrow-back'} size={dimension.width/8}/>
         </TouchableOpacity>
-        
+        </View>
+
+        <ScrollView style={styles.container_paginaRicetta}>
+    
             <View style={styles.bloccoSuperiore_paginaRicetta}>
                 <Image style={styles.immagineRicetta_paginaRicetta} source={{uri: image}}/>
             </View>
@@ -475,7 +497,9 @@ export default function paginaRicetta( {route, navigation} ){
                         marginBottom: dimension.height/20,
                         marginTop: dimension.height/40,
                         marginLeft: dimension.width/25 }}>Informazioni salutistiche:</Text>
-                    {healthLabels.map((label, index) => 
+            
+                    {typeof(healthLabels != 'undefined') &&
+                    healthLabels.map((label, index) => 
                     (
                     <View key={index} style={{flexDirection: 'row', marginLeft: dimension.width/18}}>
                         <Entypo key={index+30} name={'check'} color={'green'} size={dimension.width/20}/>
@@ -483,7 +507,7 @@ export default function paginaRicetta( {route, navigation} ){
                         marginBottom: dimension.height/110,
                         marginLeft: dimension.width/90}}>{label}
                         </Text>
-                    </View>))} 
+                    </View>))}
                 </View>
     
                 <View style={styles.ingredienti_paginaRicetta}>

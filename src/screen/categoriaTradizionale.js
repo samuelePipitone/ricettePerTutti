@@ -31,9 +31,10 @@ export default function categoria( {navigation} ){
 
     //fetching data
     const getRecipes = async () => {
+      try{
         const response = await fetch(`https://api.edamam.com/search?q=${ricerca}&app_id=${APP_ID}&app_key=${APP_KEY}`);
         const data2 = await response.json();
-        setData(data2.hits);
+        setData(data2.hits);}catch(err){console.log(err)};
     }
 
     //funzione ricerca (solo scrittura)

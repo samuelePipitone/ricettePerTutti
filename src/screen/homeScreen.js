@@ -1,5 +1,4 @@
 //IMPORT LIBRERIE
-import { StatusBar } from 'expo-status-bar';
 import {  Text, Image, SafeAreaView, TouchableOpacity, ScrollView, View } from 'react-native';
 import React from "react";
 
@@ -31,7 +30,7 @@ export default function HomeScreen( {navigation} ){
 
         <View style={styles.gruppoRicette_homeScreen}>
              <TouchableOpacity onPress= {() => navigation.navigate('categoriaFit')} style={{flexDirection: 'row', justifyContent:'center'}}>
-                 <Text style={styles.categoriaFit_homeScreen}>categoria fit!</Text>
+                 <Text style={styles.categoriaFit_homeScreen}>categoria fit</Text>
                  <Text style={styles.categoriaFit2_homeScreen}>{">"}</Text>
             </TouchableOpacity>
 
@@ -40,7 +39,7 @@ export default function HomeScreen( {navigation} ){
 
         <View style={styles.gruppoRicette_homeScreen}>
              <TouchableOpacity onPress= {() => navigation.navigate('categoriaTradizionale')} style={{flexDirection: 'row', justifyContent:'center'}}>
-                 <Text style={styles.categoria_homeScreen}>categoria generale!</Text>
+                 <Text style={styles.categoria_homeScreen}>categoria generale</Text>
                  <Text style={styles.categoria2_homeScreen}>{">"}</Text>
 
               </TouchableOpacity>
@@ -49,8 +48,8 @@ export default function HomeScreen( {navigation} ){
         </View>
  
         <View style={styles.gruppoRicette_homeScreen}>
-             <TouchableOpacity onPress= {() => navigation.navigate('categoriaFacile')} style={{flexDirection: 'row', justifyContent:'center'}}>
-                 <Text style={styles.categoria_homeScreen}>categoria facile e veloce!</Text>
+             <TouchableOpacity onPress= {() => navigation.navigate('categoriaFacile')} style={{flexDirection: 'row', justifyContent:'center',}}>
+                 <Text style={styles.categoria_homeScreen}>categoria facile e veloce</Text>
                  <Text style={styles.categoria2_homeScreen}>{">"}</Text>
 
              </TouchableOpacity>
@@ -60,7 +59,7 @@ export default function HomeScreen( {navigation} ){
 
         <View style={styles.gruppoRicette_homeScreen}>
             <TouchableOpacity onPress= {() => navigation.navigate('categoriaPersonalizzata')} style={{flexDirection: 'row', justifyContent:'center'}}>
-                 <Text style={styles.categoria_homeScreen}>categoria personalizzata!</Text>
+                 <Text style={styles.categoria_homeScreen}>categoria personalizzata</Text>
                  <Text style={styles.categoria2_homeScreen}>{">"}</Text>
 
              </TouchableOpacity>

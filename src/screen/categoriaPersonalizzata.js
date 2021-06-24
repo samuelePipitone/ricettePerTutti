@@ -50,10 +50,15 @@ export default function categoria( {navigation} ){
         } catch(err){console.log(err)}
     }
 
+    const addStr = (str, index, stringToAdd) => {
+        return str.substring(0, index) + stringToAdd + str.substring(index, str.length);
+      }
+
     //funzione che associa il numero di preferenze con la corretta stringa di preferenza
     const getPreferences = (preferenza) => {
         let placeholder = searchString;
 
+    if(preferenza && preferenza.length > 0){
      for(let i=0; i<preferenza.length; i++){
 
         if(preferenza[i] === 1){
@@ -93,14 +98,18 @@ export default function categoria( {navigation} ){
             placeholder = placeholder.concat(`&health=red-meat-free`)
         }
     }
-    setSearchString(placeholder);
+        setSearchString(placeholder);}
+    else{
+        setSearchString(searchString);
+    }
 }
 
     //fetching data
     const getRecipes = async () => {
-        const response = await fetch(searchString);
+        try{
+        const response = await fetch(ricerca);
         const data2 = await response.json();
-        setData(data2.hits);
+        setData(data2.hits);}catch(err){console.log(err)};
     }
 
     //funzione ricerca (solo scrittura)
@@ -108,7 +117,7 @@ export default function categoria( {navigation} ){
 
     //funzione modifica stato di ricerca
     const getSearch = () => {
-        setRicerca(richiesta);
+        setRicerca((addStr(searchString,32,richiesta)));
     }
 
     //barra ricerca e mapping data

@@ -30,9 +30,11 @@ export default function categoria( {navigation} ){
 
     //fetching data con range of time alla fine
     const getRecipes = async () => {
+      try{
+        if(ricerca != ''){
         const response = await fetch(`https://api.edamam.com/search?q=${ricerca}&app_id=${APP_ID}&app_key=${APP_KEY}&time=1-20`);
         const data2 = await response.json();
-        setData(data2.hits);
+        setData(data2.hits);}}catch(err){console.log(err)};
     }
 
     //funzione ricerca (solo scrittura)

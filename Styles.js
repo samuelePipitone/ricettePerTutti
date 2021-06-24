@@ -419,6 +419,12 @@ export const styles = StyleSheet.create({
     }, 
     nonProteico:{
       color: 'black'
+    },
+    carboidratiAlti:{
+      color:'red'
+    },
+    carboidratiBassi:{
+      color:'black'
     }
    
     //FINE SCHERMATA UTENTE
