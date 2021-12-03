@@ -6,6 +6,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import Entypo from "react-native-vector-icons/Entypo";
 import Fontisto from "react-native-vector-icons/Fontisto";
 import Foundation from "react-native-vector-icons/Foundation";
+import AntDesign from "react-native-vector-icons/AntDesign";
 
 //import miei file
 import {styles} from "../../Styles";
@@ -53,14 +54,20 @@ export default function paginaRicetta( {route, navigation} ){
         <View style={{flexDirection:'row', backgroundColor: 'white', borderBottomWidth: 1,
       borderBottomColor: '#9e9e9e',  }}>
           <TouchableOpacity style={{
-            marginTop: '3%',
+            marginTop: '6%',
             marginBottom: '2%', 
             widht: dimension.width,
             marginLeft: '2%',
             top: '2%'      
             }} onPress={() => navigation.goBack()}>
-                <Ionicons name={'arrow-back'} size={dimension.width/8}/>
+                <AntDesign name={'arrowleft'} size={dimension.width/10}/>
         </TouchableOpacity>
+		<Image source={require("../images/logo.jpg")} style={{
+			width: 70,
+			height: 70,
+			marginTop: 25,
+			marginLeft: 150
+		}}/>
         </View>
 
     <ScrollView style={styles.container_paginaRicetta}>
@@ -87,9 +94,9 @@ export default function paginaRicetta( {route, navigation} ){
                 <Text style={{
                     marginTop: dimension.height/150,
                     marginBottom: dimension.height/30,
-                    marginLeft: dimension.width/20,
+                    marginLeft: dimension.width/18,
                     fontWeight: '600',
-                    fontSize: dimension.width/20,
+                    fontSize: dimension.width/18,
                     color: '#003809'
                  }}>Informazioni:</Text>
 
@@ -100,7 +107,8 @@ export default function paginaRicetta( {route, navigation} ){
 
                 <View style={{ flexDirection: 'row', marginLeft: dimension.width/20,}}>
                     <Ionicons name="people" size={dimension.width/20}/>
-                    <Text style={{ marginLeft: dimension.width/80}}>Ricetta per {yields} {plurale(yields)}</Text>
+                    <Text style={{ marginLeft: dimension.width/60, 
+					fontSize: 17}}>Ricetta per {yields} {plurale(yields)}</Text>
                 </View>
 
                 <View style={{
@@ -108,14 +116,14 @@ export default function paginaRicetta( {route, navigation} ){
                     marginLeft:dimension.width/20, 
                     flexDirection:'row'}}>
                     <View style={{}}>
-                        <Text style={{fontWeight:'700'}}>Grassi: </Text>
-                        <Text style={{fontWeight:'700'}}>Carboidrati: </Text>
-                        <Text style={{fontWeight:'700'}}>Proteine: </Text>                       
+                        <Text style={{fontWeight:'700', fontSize: 17}}>Grassi: </Text>
+                        <Text style={{fontWeight:'700', fontSize: 17}}>Carboidrati: </Text>
+                        <Text style={{fontWeight:'700', fontSize: 17}}>Proteine: </Text>                       
                     </View>
                     <View style={{marginLeft:'10%'}}>
-                        <Text>{(fat).toFixed(1)} g</Text>
-                        <Text>{(carb).toFixed(1)} g</Text>
-                        <Text>{(prot.toFixed(1))} g</Text>
+                        <Text style={{fontSize: 17}}>{(fat).toFixed(1)} g</Text>
+                        <Text style={{fontSize: 17}}>{(carb).toFixed(1)} g</Text>
+                        <Text style={{fontSize: 17}}>{(prot.toFixed(1))} g</Text>
                     </View>
                     <View style={{alignItems: 'flex-end',marginLeft:'20%'}}>
                         <Text style={(fatPercentage > 35) ? styles.grasso : styles.magro}> {(fatPercentage).toFixed(0)}%</Text>
@@ -130,7 +138,8 @@ export default function paginaRicetta( {route, navigation} ){
                     cautions.map((caution, index) => (
                         <View key={index} style={{flexDirection:'row',}}>
                             <Foundation name={'alert'} key={index+20} size={dimension.width/20} color={'#e38512'}/>
-                            <Text key={index} style={{marginLeft: dimension.width/80,}}>{caution}</Text>
+                            <Text key={index} style={{marginLeft: dimension.width/60,
+								marginTop: 1, fontSize: 17}}>{caution}</Text>
                         </View>
                     ))
                     )}
@@ -166,17 +175,19 @@ export default function paginaRicetta( {route, navigation} ){
             </View>
 
             <View style={styles.linkRicetta_paginaRicetta}>
-                <Text style={styles.testoLink_paginaRicetta}>Preparazione:</Text>
                     <TouchableOpacity onPress = {() => {handleClick()}}>
                         <View style={{  
-                            backgroundColor: '#00520d',
-                            height: dimension.height/12,
-                            width: dimension.width/2,
-                            borderRadius: 17,
-                            alignSelf: 'center',
-                            marginBottom: dimension.height/6,
-                            marginTop: dimension.height/22}}  >
-                            <Text style={styles.testoBottone_paginaRicetta}>Ricetta</Text>
+                            marginBottom: dimension.height/8,
+							flexDirection: "row"}}>
+                            <Text style={styles.testoBottone_paginaRicetta}>vai alla ricetta!</Text>
+							<Text style={{
+								     color: '#820050',
+									 fontWeight: 'bold',
+									 letterSpacing: 1,
+									 fontSize: 30,
+									 marginLeft: 15,
+									 marginTop: 1
+							}}>{">>"}</Text>
                         </View>
                     </TouchableOpacity>
             </View>
@@ -193,14 +204,20 @@ export default function paginaRicetta( {route, navigation} ){
 <View style={{flexDirection:'row', backgroundColor: 'white', borderBottomWidth: 1,
       borderBottomColor: '#9e9e9e',  }}>
           <TouchableOpacity style={{
-            marginTop: '3%',
+            marginTop: '6%',
             marginBottom: '2%', 
             widht: dimension.width,
             marginLeft: '2%',
             top: '2%'      
             }} onPress={() => navigation.goBack()}>
-                <Ionicons name={'arrow-back'} size={dimension.width/8}/>
+                <AntDesign name={'arrowleft'} size={dimension.width/10}/>
         </TouchableOpacity>
+		<Image source={require("../images/logo.jpg")} style={{
+			width: 70,
+			height: 70,
+			marginTop: 25,
+			marginLeft: 150
+		}}/>
         </View>
 
         <ScrollView style={styles.container_paginaRicetta}>
@@ -217,7 +234,7 @@ export default function paginaRicetta( {route, navigation} ){
                     color: '#9e9e9e',
                     fontSize: dimension.width/25,
                     marginLeft: '2%'
-                    }}>Categoria Generale</Text>
+                    }}>Categoria Tradizionale</Text>
                 
                 <Text style={{
                     color: '#9e9e9e',
@@ -233,7 +250,7 @@ export default function paginaRicetta( {route, navigation} ){
                 <Text style={{
                     marginTop: dimension.height/150,
                     marginBottom: dimension.height/30,
-                    marginLeft: dimension.width/20,
+                    marginLeft: dimension.width/18,
                     fontWeight: '600',
                     fontSize: dimension.width/20,
                     color: '#003809',
@@ -252,7 +269,7 @@ export default function paginaRicetta( {route, navigation} ){
                         marginLeft: dimension.width/30, 
                         marginBottom: dimension.height/130, }}>
                         <Ionicons name="people" size={dimension.width/20}/>
-                        <Text style={{ marginLeft: dimension.width/60, marginBottom: dimension.height/110}}>Ricetta per {yields} {plurale(yields)}</Text>
+                        <Text style={{ marginLeft: dimension.width/60, marginBottom: dimension.height/110, fontSize: 17}}>Ricetta per {yields} {plurale(yields)}</Text>
                     </View>
                     { (typeof(cuisineType) != 'undefined') &&  cuisineType.length > 0 &&
                     <View>
@@ -262,7 +279,7 @@ export default function paginaRicetta( {route, navigation} ){
                                 marginLeft: dimension.width/30, 
                                 marginBottom: dimension.height/130, }}>
                                 <Fontisto key={index+20} name={'world-o'} size={dimension.width/20} key={index+10}/>
-                                <Text style={{ marginLeft: dimension.width/60, marginBottom: dimension.height/110}}
+                                <Text style={{ marginLeft: dimension.width/60, marginBottom: dimension.height/110, fontSize: 17}}
                                       key={index+40}>{type}</Text>
                             </View>
                         ))}
@@ -296,14 +313,23 @@ export default function paginaRicetta( {route, navigation} ){
                      })}
             </View>
     
-                <View style={styles.linkRicetta_paginaRicetta}>
-                    <Text style={styles.testoLink_paginaRicetta}>Preparazione:</Text>
-                        <TouchableOpacity onPress = {() => {handleClick()}}>
-                            <View style={styles.bottone_paginaRicetta}  >
-                                <Text style={styles.testoBottone_paginaRicetta}>Ricetta</Text>
-                            </View>
-                        </TouchableOpacity>
-                </View>
+			<View style={styles.linkRicetta_paginaRicetta}>
+                    <TouchableOpacity onPress = {() => {handleClick()}}>
+                        <View style={{  
+                            marginBottom: dimension.height/20,
+							flexDirection: "row"}}>
+                            <Text style={styles.testoBottone_paginaRicetta}>vai alla ricetta!</Text>
+							<Text style={{
+								     color: '#820050',
+									 fontWeight: 'bold',
+									 letterSpacing: 1,
+									 fontSize: 30,
+									 marginLeft: 10,
+									 marginTop: 1
+							}}>{">>"}</Text>
+                        </View>
+                    </TouchableOpacity>
+            </View>
             </View>
         </ScrollView>
         </SafeAreaView>
@@ -317,14 +343,20 @@ export default function paginaRicetta( {route, navigation} ){
 <View style={{flexDirection:'row', backgroundColor: 'white', borderBottomWidth: 1,
       borderBottomColor: '#9e9e9e',  }}>
           <TouchableOpacity style={{
-            marginTop: '3%',
+            marginTop: '6%',
             marginBottom: '2%', 
             widht: dimension.width,
             marginLeft: '2%',
             top: '2%'      
             }} onPress={() => navigation.goBack()}>
-                <Ionicons name={'arrow-back'} size={dimension.width/8}/>
+                <AntDesign name={'arrowleft'} size={dimension.width/10}/>
         </TouchableOpacity>
+		<Image source={require("../images/logo.jpg")} style={{
+			width: 70,
+			height: 70,
+			marginTop: 25,
+			marginLeft: 150
+		}}/>
         </View>
 
         <ScrollView style={styles.container_paginaRicetta}>
@@ -363,11 +395,11 @@ export default function paginaRicetta( {route, navigation} ){
                     </View>
                     <View style={{ flexDirection: 'row', marginLeft: dimension.width/35, marginBottom: dimension.height/110}}>
                         <Ionicons name="people" size={dimension.width/20}/>
-                        <Text style={{ marginLeft: dimension.width/60}}>Ricetta per {yields} {plurale(yields)}</Text>
+                        <Text style={{ marginLeft: dimension.width/60, fontSize: 17}}>Ricetta per {yields} {plurale(yields)}</Text>
                     </View>
                     <View style={{ flexDirection: 'row', marginLeft: dimension.width/35, marginBottom: dimension.height/50}}>
                         <Entypo name='stopwatch' size={dimension.width/20}/>
-                        <Text style={{ marginLeft: dimension.width/60}}>Tempo preparazione: {totalTime} minuti</Text>
+                        <Text style={{ marginLeft: dimension.width/60, fontSize: 17}}>Tempo preparazione: {totalTime} minuti</Text>
                     </View>
                 </View>    
 
@@ -397,14 +429,23 @@ export default function paginaRicetta( {route, navigation} ){
                      })}
             </View>
     
-                <View style={styles.linkRicetta_paginaRicetta}>
-                    <Text style={styles.testoLink_paginaRicetta}>Preparazione:</Text>
-                        <TouchableOpacity onPress = {() => {handleClick()}}>
-                            <View style={styles.bottone_paginaRicetta}  >
-                                <Text style={styles.testoBottone_paginaRicetta}>Ricetta</Text>
-                            </View>
-                        </TouchableOpacity>
-                </View>
+			<View style={styles.linkRicetta_paginaRicetta}>
+                    <TouchableOpacity onPress = {() => {handleClick()}}>
+                        <View style={{  
+                            marginBottom: dimension.height/20,
+							flexDirection: "row"}}>
+                            <Text style={styles.testoBottone_paginaRicetta}>vai alla ricetta!</Text>
+							<Text style={{
+								     color: '#820050',
+									 fontWeight: 'bold',
+									 letterSpacing: 1,
+									 fontSize: 30,
+									 marginLeft: 10,
+									 marginTop: 1
+							}}>{">>"}</Text>
+                        </View>
+                    </TouchableOpacity>
+            </View>
             </View>
         </ScrollView>
         </SafeAreaView>
@@ -418,14 +459,20 @@ export default function paginaRicetta( {route, navigation} ){
 <View style={{flexDirection:'row', backgroundColor: 'white', borderBottomWidth: 1,
       borderBottomColor: '#9e9e9e',  }}>
           <TouchableOpacity style={{
-            marginTop: '3%',
+            marginTop: '6%',
             marginBottom: '2%', 
             widht: dimension.width,
             marginLeft: '2%',
             top: '2%'      
             }} onPress={() => navigation.goBack()}>
-                <Ionicons name={'arrow-back'} size={dimension.width/8}/>
+                <AntDesign name={'arrowleft'} size={dimension.width/10}/>
         </TouchableOpacity>
+		<Image source={require("../images/logo.jpg")} style={{
+			width: 70,
+			height: 70,
+			marginTop: 25,
+			marginLeft: 150
+		}}/>
         </View>
 
         <ScrollView style={styles.container_paginaRicetta}>
@@ -447,16 +494,8 @@ export default function paginaRicetta( {route, navigation} ){
                 <Text style={styles.titoloRicetta_paginaRicetta}>{title}</Text>
             </View>
     
-                <View style={{
-                    flex: 1,
-                    marginLeft: dimension.width/10,
-                    marginRight: dimension.width/10,
-                    borderColor: '#b5b5b5',
-                    borderWidth: 1,
-                    marginTop: dimension.height/10,
-                    backgroundColor: '#f5f5f5'}}>
+                <View style={styles.tabellaNutrizionale_paginaRicetta}>
                     
-
                     <Text style={{
                     marginTop: dimension.height/150,
                     marginBottom: dimension.height/30,
@@ -478,34 +517,27 @@ export default function paginaRicetta( {route, navigation} ){
                         marginLeft: dimension.width/35, 
                         marginBottom: dimension.height/50}}>
                         <Ionicons name="people" size={dimension.width/20}/>
-                        <Text style={{ marginLeft: dimension.width/80}}>Ricetta per {yields} {plurale(yields)}</Text>
+                        <Text style={{ marginLeft: dimension.width/80, fontSize: 17}}>Ricetta per {yields} {plurale(yields)}</Text>
                     </View>
                 </View>   
 
-                <View style={{
-                    marginTop: dimension.height/25,
-                    marginLeft: dimension.width/10,
-                    borderWidth: 1,
-                    borderColor: '#9e9e9e',
-                    marginRight: dimension.width/10,
-                    backgroundColor: '#f5f5f5'
-                }}>
+                <View style={styles.tabellaNutrizionale_paginaRicetta}>
                     <Text style={{ 
                         color:'#003809', 
                         fontSize: dimension.width/20,
                         fontWeight: '700',
                         marginBottom: dimension.height/20,
                         marginTop: dimension.height/40,
-                        marginLeft: dimension.width/25 }}>Informazioni salutistiche:</Text>
+                        marginLeft: dimension.width/14 }}>Informazioni salutistiche:</Text>
             
-                    {typeof(healthLabels != 'undefined') &&
+                    {typeof(healthLabels) != 'undefined' &&
                     healthLabels.map((label, index) => 
                     (
                     <View key={index} style={{flexDirection: 'row', marginLeft: dimension.width/18}}>
                         <Entypo key={index+30} name={'check'} color={'green'} size={dimension.width/20}/>
                         <Text key={index+60} style={{
                         marginBottom: dimension.height/110,
-                        marginLeft: dimension.width/90}}>{label}
+                        marginLeft: dimension.width/90, fontSize: 17}}>{label}
                         </Text>
                     </View>))}
                 </View>
@@ -536,14 +568,23 @@ export default function paginaRicetta( {route, navigation} ){
                      })}
             </View>
     
-                <View style={styles.linkRicetta_paginaRicetta}>
-                    <Text style={styles.testoLink_paginaRicetta}>Preparazione:</Text>
-                        <TouchableOpacity onPress = {() => {handleClick()}}>
-                            <View style={styles.bottone_paginaRicetta}  >
-                                <Text style={styles.testoBottone_paginaRicetta}>Ricetta</Text>
-                            </View>
-                        </TouchableOpacity>
-                </View>
+			<View style={styles.linkRicetta_paginaRicetta}>
+                    <TouchableOpacity onPress = {() => {handleClick()}}>
+                        <View style={{  
+                            marginBottom: dimension.height/20,
+							flexDirection: "row"}}>
+                            <Text style={styles.testoBottone_paginaRicetta}>vai alla ricetta!</Text>
+							<Text style={{
+								     color: '#820050',
+									 fontWeight: 'bold',
+									 letterSpacing: 1,
+									 fontSize: 30,
+									 marginLeft: 10,
+									 marginTop: 1
+							}}>{">>"}</Text>
+                        </View>
+                    </TouchableOpacity>
+            </View>
             </View>
         </ScrollView>
         </SafeAreaView>

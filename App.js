@@ -47,13 +47,15 @@ export default function App() {
         options={{
           title: 'Impostazioni',
           headerStyle: {
-            backgroundColor: 'green'
+            backgroundColor: 'green',
+			height: 110
           },
           headerTintColor: 'white',
           headerTitleStyle:{
-            marginLeft: '20%',
+            marginLeft: '23%',
             fontWeight: '700',
-            letterSpacing: 1
+            letterSpacing: 1,
+			fontSize: 25
           }
       }}/>
         <Stack.Screen 

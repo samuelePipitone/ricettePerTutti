@@ -6,10 +6,24 @@ const imageHeight = Math.round(dimension.width *(9/16));
 const imageWidth = dimension.width;
 const height = dimension.height;
 
-//stili
+//style
 
 export const styles = StyleSheet.create({
 
+	background:{
+		resizeMode: 'cover',
+		flex: 1,
+		width: '100%',
+		height: '100%',
+		position: 'absolute'
+	},
+	background2:{
+		flex: 1,
+		width: '100%',
+		height: '100%',
+		position: 'absolute',
+		opacity: 0.6,
+	},
     //APP
     headerStyle_app:{
       backgroundColor: 'green',
@@ -31,32 +45,34 @@ export const styles = StyleSheet.create({
       flexDirection: 'column',
     },
     categoriaFit_homeScreen: {
-      fontWeight: '600',
-      letterSpacing: imageWidth/250,
+      fontWeight: 'bold',
+      letterSpacing: 2.5,
       fontSize: imageWidth/18,
-      marginLeft: imageWidth/15,
-      color: '#003809',
-      marginBottom: imageHeight/40
+      
+      color: 'rgba(0, 56,9,0.85)',
+      marginBottom: imageHeight/40,
+	  marginTop: imageHeight/30
     },
     categoriaFit2_homeScreen:{
-      fontWeight: '600',
-      letterSpacing: imageWidth/250,
+      fontWeight: 'bold',
+      letterSpacing: 2.5,
       fontSize: imageWidth/18,
-      marginLeft: imageWidth/15,
-      color: '#820050'
+      marginLeft: imageWidth/20,
+      color: '#820050',
+	  marginTop: imageHeight/30
     },
     categoria_homeScreen: {
-      fontWeight: '600',
+      fontWeight: 'bold',
       fontSize: imageWidth/18,
-      marginLeft: imageWidth/15,
-      color: '#003809',
-      letterSpacing: imageWidth/300,
-      marginBottom: imageHeight/40
+      
+      color: 'rgba(0, 56,9,0.9)',
+      letterSpacing: 3,
+      marginBottom: imageHeight/35,
     },
     categoria2_homeScreen: {
-      fontWeight: '600',
+      fontWeight: 'bold',
       fontSize: imageWidth/18,
-      marginLeft: imageWidth/15,
+      marginLeft: imageWidth/20,
       color: '#820050',
       letterSpacing: imageWidth/300,
     },
@@ -67,14 +83,14 @@ export const styles = StyleSheet.create({
     },
     containerFoto_homeScreen:{
       width: imageWidth,
-      height: height/12,
-      marginTop: '7%',
+      height: height/11,
+	  marginTop:'5%',
       flexDirection: 'row',
       borderBottomColor: '#9e9e9e',
-      borderBottomWidth: imageHeight/200
+      borderBottomWidth: 1
     },
     gruppoRicette_homeScreen:{
-      marginTop: imageHeight/3
+      marginTop: imageHeight/12
     },
     barraRicerca_homeScreen:{
       width:'50%',
@@ -98,20 +114,20 @@ export const styles = StyleSheet.create({
     container_GruppoRicetteHomeScreen:{
       flex: 1,
       marginTop: imageHeight/20,
-      marginBottom: imageHeight/10
+      marginBottom: imageHeight/5
     },
     //FINE GRUPPO RICETTE HOME SCREEN
 
     //RICETTA HOME SCREEN
     container_ricettaHomeScreen: {
       backgroundColor: "white",
-      marginRight: imageWidth/10,
+      marginRight: imageWidth/15,
       width: imageWidth/(3/2),
       height: imageHeight*1.1,
       borderRadius: 15,
       marginLeft: imageWidth/20,
       borderWidth: 1,
-      borderColor: '#d3ebd4',
+      borderColor: "#cccccc"
     },
     immagineRicetta_ricettaHomeScreen: {
       width: "100%",
@@ -121,17 +137,17 @@ export const styles = StyleSheet.create({
       resizeMode: 'cover'
     },
     titoloRicetta_homeScreen: {
-      fontSize: imageWidth/25,
+      fontSize: 25,
       color: '#003809',
       fontWeight: "bold",
       marginTop: '3%',
       marginBottom: '7%'
     },
     bloccoInferiore_ricettaHomeScreen:{
-      flex: 0.5
+	  height: '15%'
     },
     bloccoSuperiore_ricettaHomeScreen:{
-      flex: 1.5
+		flex: 1
     },
     title_ricettaHomeScreen:{
       marginLeft: imageWidth/20,
@@ -141,7 +157,7 @@ export const styles = StyleSheet.create({
     decorazioni_ricettaHomeScreen:{
       flexDirection: 'row',
       flex: 1,
-      marginTop: '12%',
+      marginTop: '10%',
       justifyContent: 'space-around',
     },
     elements_ricettaHomeScreen:{
@@ -155,7 +171,7 @@ export const styles = StyleSheet.create({
     },
     testoDecorazione_ricettaHomeScreen:{
       fontWeight: "700",
-      fontSize: imageWidth/38,
+      fontSize: 16,
       marginLeft: imageWidth/120
     },
     //FINE RICETTA HOMESCREEN
@@ -169,11 +185,9 @@ export const styles = StyleSheet.create({
       backgroundColor: 'white',
       borderBottomWidth: 1,
       borderBottomColor: '#9e9e9e',
-      borderTopWidth: 1,
-      borderTopColor: '#9e9e9e'
     },
     immagineRicetta_paginaRicetta:{
-      resizeMode: 'stretch',
+      resizeMode: 'cover',
       height: imageHeight*(13/9),
       width: '100%',
     },
@@ -194,12 +208,14 @@ export const styles = StyleSheet.create({
       borderColor: '#b5b5b5',
       borderWidth: 1,
       marginTop: imageHeight/4,
-      backgroundColor: '#f5f5f5'
+      backgroundColor: '#f5f5f5',
+	  borderRadius: 15
     },
     calories_paginaRicetta:{
       alignSelf: 'center',
       marginLeft: imageWidth/60,
-      marginBottom: imageHeight/110
+      marginBottom: imageHeight/110,
+	  fontSize: 17
     },
     ingredienti_paginaRicetta:{
       fontSize: 18,
@@ -214,7 +230,7 @@ export const styles = StyleSheet.create({
       marginBottom: imageHeight/10,
       fontWeight: '600',
       fontSize: imageWidth/16,
-      marginLeft: imageWidth/30,
+      marginLeft: 57,
       color: '#003809',
       marginBottom: imageHeight/5
     },
@@ -227,30 +243,23 @@ export const styles = StyleSheet.create({
     },
     linkRicetta_paginaRicetta:{
       flex: 1,
-      marginTop: imageHeight/4
+      marginTop: imageHeight/6,
+	  marginBottom: imageHeight/8
     },
     testoLink_paginaRicetta:{
-      marginBottom: imageHeight/8,
+      marginBottom: imageHeight/12,
       marginLeft: imageWidth/60,
       fontWeight: '600',
       color: '#003809',
       fontSize: imageWidth/20
     },
-    bottone_paginaRicetta:{
-      backgroundColor: '#00520d',
-      height: imageHeight/4,
-      width: imageWidth/2,
-      borderRadius: 17,
-      alignSelf: 'center',
-      marginBottom: imageHeight/3,
-      marginTop: imageHeight/13
-    },
     testoBottone_paginaRicetta:{
-      color: 'white',
-      alignSelf: 'center',
-      marginTop: imageHeight/14,
+      color: '#002406',
       fontWeight: 'bold',
-      letterSpacing: 1
+      letterSpacing: 2,
+	  fontSize: 22,
+	  marginLeft: 28,
+	  marginTop: 8
     },
     logo_paginaRicetta:{
       width: imageWidth/10,
@@ -268,16 +277,15 @@ export const styles = StyleSheet.create({
     },
     ingredienti2_paginaRicetta:{
       marginTop: dimension.height/200,
-      marginBottom: dimension.height/250,
       marginRight: '7%',
       marginLeft: '7%'
     },
-    //FINE PAGINA CATEGORIA
+    //FINE PAGINA RICETTA
 
     //PAGINA RICETTA CATEGORIA
     immagineRicetta_ricettaCategoria:{
-      width: imageWidth/4,
-      height: imageHeight/2.03,
+      width: imageWidth/2.6,
+      height: height/5.6,
       resizeMode: 'cover',
       borderTopLeftRadius: 10,
       borderBottomLeftRadius: 10
@@ -295,41 +303,43 @@ export const styles = StyleSheet.create({
       marginTop: '5%',
     },
     titoloRicetta_ricettaCategoria:{
-      fontSize: imageWidth/22,
+      fontSize: 24,
       fontWeight: 'bold',
       marginLeft: '4%',
       color: '#003809'
     },
     bloccoSuperiore_ricettaCategoria:{
-      marginLeft: '7%',
+	  marginLeft: '7%',
       marginTop: '6%',
-      width: imageWidth/4,
-      height: imageHeight/2,
-      borderBottomColor: '#d0dbd1',
-      borderTopColor: '#d0dbd1',
+      width: imageWidth/2.6,
+      height: height/5.5,
+      borderBottomColor: '#a6a6a6',
+      borderTopColor: '#a6a6a6',
       borderTopWidth: 1,
       borderBottomWidth: 1,
-      borderLeftColor: '#d0dbd1',
+      borderLeftColor: '#a6a6a6',
       borderLeftWidth: 1,
       borderTopLeftRadius: 10,
       borderBottomLeftRadius: 10
     },
     bloccoInferiore_ricettaCategoria:{
       backgroundColor: 'white',
-      width: imageWidth/1.7,
-      height: imageHeight/2,
+      width: imageWidth/2,
+      height: height/5.5,
       marginTop: '6%',
-      borderRightColor: '#d0dbd1',
-      borderRightWidth: 1,
-      borderBottomColor: '#d0dbd1',
-      borderTopColor: '#d0dbd1',
+      borderRightColor: '#a6a6a6',
+      borderRightWidth: 0.9,
+      borderBottomColor: '#a6a6a6',
+      borderTopColor: '#a6a6a6',
       borderTopWidth: 1,
       borderBottomWidth: 1,
       borderTopRightRadius: 10,
       borderBottomRightRadius: 10
     },
     calorie_ricettaCategoria:{
-      fontWeight: '600',
+      fontWeight: 'bold',
+	  fontSize: 16,
+	  top: 16
     },
     //FINE PAGINA RICETTA CATEGORIA
 
@@ -363,22 +373,26 @@ export const styles = StyleSheet.create({
 
     //SCHERMATA UTENTE
     item: {   
-      backgroundColor: "red",
-      width: imageWidth/3,
-      height: imageHeight/4,
-      marginRight: imageWidth/10,
-      marginBottom: imageHeight/10,
-      borderRadius: 10,
-      marginLeft: imageWidth/12
+      backgroundColor: "rgba(242,34,34,0.75)",
+      width: 117,
+      height: 105,
+      marginBottom: imageHeight/8,
+      borderRadius: 15,
+      marginLeft: 23,
+	  borderWidth: 1,
+	  borderColor: "#8c8c8c",
+	  marginTop: imageHeight/8
     },
     itemSelected: {   
-      backgroundColor: "green",
-      width: imageWidth/3,
-      height: imageHeight/4,
-      marginRight: imageWidth/10,
-      marginBottom: imageHeight/10,
-      borderRadius: 10,
-      marginLeft: imageWidth/12
+      backgroundColor: "rgba(0,110,7,0.75)",
+      width: 120,
+      height: 105,
+      marginBottom: imageHeight/8,
+      borderRadius: 15,
+	  borderWidth: 1,
+	  borderColor: "#8c8c8c",
+	  marginTop: imageHeight/8,
+	  marginLeft: 20,
     },
     containerUtente: {
       flex: 1,
@@ -387,45 +401,106 @@ export const styles = StyleSheet.create({
     },
     testo_schermataUtente:{
       fontWeight: 'bold',
-      fontSize: imageWidth/25,
-      alignSelf: 'center',
-      marginBottom: imageHeight/15,
-      marginTop: imageHeight/20
+      fontSize: imageWidth/21,
+      marginLeft: imageWidth/10,
+      marginBottom: imageHeight/6,
+	  color: "black"
     },
     blocchi_schermataUtente:{
-      alignSelf: 'center',
-      marginTop: '12%'
+	  width: '100%',
     },
     testoBlocco_schermataUtente:{
-      alignSelf: 'center',
+    alignSelf: 'center',
       fontWeight: 'bold',
-      marginTop: '12%',
-      color: 'black'
+      marginTop: '9%',
+      color: '#380000',
+	  fontSize: 17
     },
     selectedTestoBlocco_schermataUtente:{
       alignSelf: 'center',
       fontWeight: 'bold',
-      marginTop: '12%',
-      color: 'white'
+      marginTop: '9%',
+      color: '#002b00',
+	  fontSize: 17
     },
     grasso:{
-      color: 'red'
+      color: 'red',
+	  fontSize: 17
     },
     magro: {
-      color: 'black'
+      color: 'black',
+	  fontSize: 17
     },
     proteico:{
-      color: 'green'
+      color: 'green',
+	  fontSize: 17
     }, 
     nonProteico:{
-      color: 'black'
+      color: 'black',
+	  fontSize: 17
     },
     carboidratiAlti:{
-      color:'red'
+      color:'red',
+	  fontSize: 17
     },
     carboidratiBassi:{
-      color:'black'
-    }
+      color:'black',
+	  fontSize: 17
+    },
+	barraSup_schermataUtente:{
+		marginTop: imageHeight/9
+	},
+	icona_schermataUtente:{
+		marginLeft: 25,
+		top: 15
+	},
+	modal_schermataUtente:{
+		backgroundColor: "#000000aa",
+		flex: 1
+	},
+	innerModal_schermataUtente:{
+		backgroundColor: "white",
+		top: 175,
+		marginLeft: '9%',
+		marginRight: '9%',
+		height: 300,
+		borderRadius: 15,
+		borderColor: "#575757",
+		borderWidth: 1
+	},
+	testoModal_schermataUtente:{
+		fontSize: 23,
+		marginLeft: 30,
+		marginTop: 15,
+		marginRight: 5
+	},
+	closing:{
+		marginLeft: 350,
+		marginTop: 10,
+		color: 'black'
+	},
+	logoBlock_schermataUtente: {
+		width: 45,
+		height: 45,
+		marginLeft: 34,
+		marginTop: 14
+	},
+	innerModal2_schermataUtente:{
+		backgroundColor: "white",
+		top: 175,
+		marginLeft: '9%',
+		marginRight: '9%',
+		height: 250,
+		borderRadius: 15,
+		borderColor: "#575757",
+		borderWidth: 1
+	},
+	testoModal2_schermataUtente:{
+		fontSize: 23,
+		marginLeft: 20,
+		marginTop: 30,
+		marginRight: 5
+	},
    
     //FINE SCHERMATA UTENTE
   });

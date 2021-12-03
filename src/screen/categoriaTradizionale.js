@@ -1,14 +1,15 @@
 //import
 import React from "react";
 import { useEffect, useState } from 'react';
-import {ScrollView, SafeAreaView, View, Dimensions, Image, TouchableOpacity} from "react-native";
+import {ScrollView, SafeAreaView, View, Dimensions, Text, TouchableOpacity} from "react-native";
 
 import { Searchbar } from 'react-native-paper';
-import Ionicons from "react-native-vector-icons/Ionicons";
+import AntDesign from "react-native-vector-icons/AntDesign";
 
 //miei import
 import {styles} from "../../Styles.js";
 import RicettaCategoria from "../components/RicettaCategoria.js";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 //CREDENZIALI EDAMAM API search
 const APP_ID = '3dca0b91';
@@ -50,7 +51,7 @@ export default function categoria( {navigation} ){
         <SafeAreaView style={styles.container_paginaCategoria}>
             <View style={styles.barraSuperiore_paginaCategoria}>
               <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                <Ionicons name={'arrow-back'} size={dimension.width/8}/>
+			  	<AntDesign name={'arrowleft'} size={dimension.width/10}/>
               </TouchableOpacity>
               <Searchbar
               placeholder="Cerca in tradizionale"
@@ -61,11 +62,19 @@ export default function categoria( {navigation} ){
               style={{width: '60%'}}
               />
               <TouchableOpacity onPress={() => navigation.navigate('utente')}>
-                <Image source={require('../images/settings.png')} 
-                style={{height: '70%', width: dimension.width/10, resizeMode: 'contain'}}/>
+			  <FontAwesome name="bars" size={dimension.width/11}/>
               </TouchableOpacity>
              </View>
             <ScrollView style={styles.container2_paginaCategoria}>
+
+			<Text style={{
+					marginLeft: 40,
+					marginTop: 30,
+					fontSize: 22,
+					color: '#ababab'
+				}}>In questa sezione potrai cercare ricette tradizionali, per ogni ricetta vedrai
+				   il paese di provenienza.
+				</Text>
      
              {data.map(data => (
               <RicettaCategoria 

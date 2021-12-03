@@ -16,8 +16,7 @@ export default function loadingPage( { navigation }){
     return(
       <SafeAreaView style={{ 
           backgroundColor: 'white',
-          width: imageWidth,
-          height: imageHeight}}>  
+          flex: 1}}>  
         <View style={{
             flex: 1,
             backgroundColor: 'white',

@@ -24,7 +24,6 @@ const stringaRandomVeloce = [
     "https://api.edamam.com/search?q=shake&app_id=3dca0b91&app_key=72b2bc992bdbafabe3b61df5dcbdc464&time=1-20",
     "https://api.edamam.com/search?q=fruit&app_id=3dca0b91&app_key=72b2bc992bdbafabe3b61df5dcbdc464&time=1-20",
     "https://api.edamam.com/search?q=drink&app_id=3dca0b91&app_key=72b2bc992bdbafabe3b61df5dcbdc464&time=1-20",
-    "https://api.edamam.com/search?q=macedonia&app_id=3dca0b91&app_key=72b2bc992bdbafabe3b61df5dcbdc464&time=1-20",
     "https://api.edamam.com/search?q=pasta&app_id=3dca0b91&app_key=72b2bc992bdbafabe3b61df5dcbdc464&time=1-20",
 ]
 

@@ -1,9 +1,10 @@
 //import
 import React from "react";
 import { useEffect } from 'react';
-import {ScrollView, SafeAreaView, View, TouchableOpacity, Image, Dimensions} from "react-native";
+import {ScrollView, SafeAreaView, View, TouchableOpacity, Dimensions, Text} from "react-native";
 import { Searchbar } from 'react-native-paper';
-import Ionicons from "react-native-vector-icons/Ionicons";
+import AntDesign from "react-native-vector-icons/AntDesign";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 //miei import
 import {styles} from "../../Styles.js";
@@ -50,7 +51,7 @@ export default function categoria( {navigation} ){
         <SafeAreaView style={styles.container_paginaCategoria}>
             <View style={styles.barraSuperiore_paginaCategoria}>
               <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                <Ionicons name={'arrow-back'} size={dimension.width/8}/>
+			  	<AntDesign name={'arrowleft'} size={dimension.width/10}/>
               </TouchableOpacity>
               <Searchbar
               placeholder="Cerca in facile"
@@ -61,11 +62,19 @@ export default function categoria( {navigation} ){
               style={{width: '60%'}}
               />
               <TouchableOpacity onPress={() => navigation.navigate('utente')}>
-                <Image source={require('../images/settings.png')} 
-                style={{height: '70%', width: dimension.width/10, resizeMode: 'contain'}}/>
+			  <FontAwesome name="bars" size={dimension.width/11}/>
               </TouchableOpacity>
              </View>
             <ScrollView style={styles.container2_paginaCategoria}>
+
+			<Text style={{
+					marginLeft: 40,
+					marginTop: 30,
+					fontSize: 22,
+					color: '#ababab'
+				}}>In questa sezione potrai cercare ricette veloci (massimo 20 min.),
+				 inoltre per ogni ricetta vedrai i tempi di preparazione.
+				</Text>
      
              {data.map(data => (
               <RicettaCategoria 
@@ -78,6 +87,7 @@ export default function categoria( {navigation} ){
               numeroId={3}
               digest= {data.recipe.digest}
               yields = {data.recipe.yield}
+              totalTime = {data.recipe.totalTime}
               mealType = {data.recipe.mealType}
               navigation={navigation}/>
              ))}
