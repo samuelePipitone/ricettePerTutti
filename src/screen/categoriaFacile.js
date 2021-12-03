@@ -5,6 +5,7 @@ import {ScrollView, SafeAreaView, View, TouchableOpacity, Dimensions, Text} from
 import { Searchbar } from 'react-native-paper';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { TextInput } from "react-native-gesture-handler";
 
 //miei import
 import {styles} from "../../Styles.js";
@@ -23,6 +24,7 @@ export default function categoria( {navigation} ){
     const [richiesta, setRichiesta] = React.useState('');
     const [data, setData] = React.useState([]);
     const [ricerca, setRicerca] = React.useState("");
+	const [tempo, setTempo] = React.useState('');
 
     //useEffect 
     useEffect(() => {
@@ -33,7 +35,7 @@ export default function categoria( {navigation} ){
     const getRecipes = async () => {
       try{
         if(ricerca != ''){
-        const response = await fetch(`https://api.edamam.com/search?q=${ricerca}&app_id=${APP_ID}&app_key=${APP_KEY}&time=1-20`);
+        const response = await fetch(`https://api.edamam.com/search?q=${ricerca}&app_id=${APP_ID}&app_key=${APP_KEY}&time=1-${tempo}`);
         const data2 = await response.json();
         setData(data2.hits);}}catch(err){console.log(err)};
     }
@@ -49,6 +51,7 @@ export default function categoria( {navigation} ){
     //barra ricerca e mapping data
     return(
         <SafeAreaView style={styles.container_paginaCategoria}>
+
             <View style={styles.barraSuperiore_paginaCategoria}>
               <TouchableOpacity onPress={() => navigation.navigate('Home')}>
 			  	<AntDesign name={'arrowleft'} size={dimension.width/10}/>
@@ -62,35 +65,57 @@ export default function categoria( {navigation} ){
               style={{width: '60%'}}
               />
               <TouchableOpacity onPress={() => navigation.navigate('utente')}>
-			  <FontAwesome name="bars" size={dimension.width/11}/>
+			  	<FontAwesome name="bars" size={dimension.width/11}/>
               </TouchableOpacity>
              </View>
+
             <ScrollView style={styles.container2_paginaCategoria}>
 
-			<Text style={{
+				<TextInput 
+				mode='outlined'
+				placeholder="inserisci tempo max"
+				keyboardType="numeric"
+				value={tempo}
+				onChangeText={(n) => {
+					n.replace(/[^0-9]/g,'');
+					setTempo(n)}}
+				style={{
 					marginLeft: 40,
-					marginTop: 30,
-					fontSize: 22,
-					color: '#ababab'
-				}}>In questa sezione potrai cercare ricette veloci (massimo 20 min.),
-				 inoltre per ogni ricetta vedrai i tempi di preparazione.
-				</Text>
-     
-             {data.map(data => (
-              <RicettaCategoria 
-              key={data.recipe.calories}
-              title={data.recipe.label}
-              calories={(data.recipe.calories).toFixed(0)}
-              image={data.recipe.image}
-              ingredients={data.recipe.ingredients}
-              url={data.recipe.url}
-              numeroId={3}
-              digest= {data.recipe.digest}
-              yields = {data.recipe.yield}
-              totalTime = {data.recipe.totalTime}
-              mealType = {data.recipe.mealType}
-              navigation={navigation}/>
-             ))}
+					marginRight: 295,
+					marginTop: 20,
+					borderWidth: 2,
+					borderColor: 'rgba(0, 56,9,0.85)',
+					borderRadius: 7,
+					height: 45,
+					padding: 10,
+					fontSize: 18
+				}}
+				/>
+
+				<Text style={{
+						marginLeft: 40,
+						marginTop: 30,
+						fontSize: 22,
+						color: '#ababab'
+					}}>In questa sezione potrai cercare ricette veloci (minuti impostabili nel box 'inserisci tempo'),
+					inoltre per ogni ricetta vedrai i tempi di preparazione.
+					</Text>
+		
+				{data.map(data => (
+				<RicettaCategoria 
+				key={data.recipe.calories}
+				title={data.recipe.label}
+				calories={(data.recipe.calories).toFixed(0)}
+				image={data.recipe.image}
+				ingredients={data.recipe.ingredients}
+				url={data.recipe.url}
+				numeroId={3}
+				digest= {data.recipe.digest}
+				yields = {data.recipe.yield}
+				totalTime = {data.recipe.totalTime}
+				mealType = {data.recipe.mealType}
+				navigation={navigation}/>
+				))}
             </ScrollView>
         </SafeAreaView>
      

@@ -65,7 +65,7 @@ export default function HomeScreen( {navigation} ){
 				navigation.navigate('categoriaPersonalizzata')} 
 				style={{flexDirection: 'row', marginLeft: '6%'}}>
                  <Text style={styles.categoria_homeScreen}>
-					 Categoria personalizzata</Text>
+					 Categoria Personalizzata</Text>
                  <Text style={styles.categoria2_homeScreen}>{">>"}</Text>
 
              </TouchableOpacity>
@@ -77,7 +77,7 @@ export default function HomeScreen( {navigation} ){
         <View style={styles.gruppoRicette_homeScreen}>
              <TouchableOpacity onPress= {() => navigation.navigate('categoriaFit')} 
 			 style={{flexDirection: 'row', marginLeft: '6%'}}>
-                 <Text style={styles.categoriaFit_homeScreen}>Categoria fit</Text>
+                 <Text style={styles.categoriaFit_homeScreen}>Categoria Fit</Text>
                  <Text style={styles.categoriaFit2_homeScreen}>{">>"}</Text>
             </TouchableOpacity>
 
@@ -85,12 +85,26 @@ export default function HomeScreen( {navigation} ){
 			numeroId={1} navigation={navigation}/>
         </View>
 
+		<View style={styles.gruppoRicette_homeScreen}>
+             <TouchableOpacity onPress= {() => 
+				navigation.navigate('categoriaFacile')} 
+				style={{flexDirection: 'row', marginLeft: '6%',}}>
+                 <Text style={styles.categoria_homeScreen}>
+					 Categoria Facile e Veloce</Text>
+                 <Text style={styles.categoria2_homeScreen}>{">>"}</Text>
+
+             </TouchableOpacity>
+      
+             <GruppoRicetteHomeScreen stringa={stringaVeloce} 
+			 numeroId={3} navigation={navigation}/>
+        </View>
+
         <View style={styles.gruppoRicette_homeScreen}>
              <TouchableOpacity onPress= {() => 
 				navigation.navigate('categoriaTradizionale')} 
 				style={{flexDirection: 'row', marginLeft: '6%'}}>
                  <Text style={styles.categoria_homeScreen}>
-					 Categoria tradizionale</Text>
+					 Categoria Tradizionale</Text>
                  <Text style={styles.categoria2_homeScreen}>{">>"}</Text>
 
               </TouchableOpacity>
@@ -99,19 +113,45 @@ export default function HomeScreen( {navigation} ){
 			  numeroId={2} navigation={navigation}/>
         </View>
  
-        <View style={styles.gruppoRicette_homeScreen}>
-             <TouchableOpacity onPress= {() => 
-				navigation.navigate('categoriaFacile')} 
-				style={{flexDirection: 'row', marginLeft: '6%',}}>
-                 <Text style={styles.categoria_homeScreen}>
-					 Categoria facile e veloce</Text>
-                 <Text style={styles.categoria2_homeScreen}>{">>"}</Text>
 
-             </TouchableOpacity>
-      
-             <GruppoRicetteHomeScreen stringa={stringaVeloce} 
-			 numeroId={3} navigation={navigation}/>
-        </View>
+		<View style={{
+			marginTop: 30,
+			 borderTopColor: 'black',
+			  borderTopWidth: 0.8}}>
+			<View style={{flexDirection:'row', marginTop: 15}}>
+				<Text style={{
+				marginLeft: 20,
+				fontWeight: 'bold',
+				fontSize: 20
+				}}>Follow me!</Text>
+				<Text style={{
+					fontSize: 18,
+					marginLeft: 215
+				}}>Samuele Pipitone</Text>
+			</View>
+
+			<View style={{flexDirection:'row',
+			 justifyContent: 'space-evenly',
+			 
+			 }}>
+				<Image 
+				style={{height:60, width:60, marginTop: 20, marginLeft: 10, marginBottom: 30}}
+				source={{uri: 'https://www.dongiro.it/wp-content/uploads/2018/07/facebook-logo-png-5a35528eaa4f08.7998622015134439826976.jpg'}}>
+				</Image>
+				<Image 
+				style={{height:45, width:45, marginTop: 27, marginLeft: 10, marginBottom: 30}}
+				source={{uri: 'https://key0.cc/images/preview/20_01cfef901110694a52dbd29edc68f9c6.png'}}>
+				</Image>
+				<Image 
+				style={{height:60, width:60, marginTop: 20, marginLeft: 10, marginBottom: 30}}
+				source={{uri: 'https://banner2.cleanpng.com/20180628/wpy/kisspng-github-social-media-computer-icons-logo-android-5b34849064c384.6953108415301684644127.jpg'}}>
+				</Image>
+				<Image 
+				style={{height:70, width:70, marginTop: 15, marginLeft: 10, marginBottom: 30}}
+				source={{uri: 'https://key0.cc/images/preview/22277_7af3ae21119fdcfe3a175576ba341241.png'}}>
+				</Image>
+			</View>
+		</View>
 
     </ScrollView>
     </SafeAreaView>

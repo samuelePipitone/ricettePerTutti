@@ -403,6 +403,8 @@ export default function paginaRicetta( {route, navigation} ){
                     </View>
                 </View>    
 
+				<Consigli id={2} fat={fatPercentage} prot={protPercentage} carb={carbPercentage}/>
+
                 <View style={styles.ingredienti_paginaRicetta}>
                 <Text style={styles.titoloIngredienti_paginaRicetta}>Ingredienti:</Text>
 

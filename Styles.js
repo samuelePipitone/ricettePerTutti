@@ -339,7 +339,7 @@ export const styles = StyleSheet.create({
     calorie_ricettaCategoria:{
       fontWeight: 'bold',
 	  fontSize: 16,
-	  top: 16
+	  top: 4
     },
     //FINE PAGINA RICETTA CATEGORIA
 
@@ -432,7 +432,7 @@ export const styles = StyleSheet.create({
 	  fontSize: 17
     },
     proteico:{
-      color: 'green',
+      color: '#005c14',
 	  fontSize: 17
     }, 
     nonProteico:{
