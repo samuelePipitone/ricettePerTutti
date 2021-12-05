@@ -178,7 +178,7 @@ export default function App() {
 								<TouchableOpacity onPress={() => setModalVisible(false)}>
 								<AntDesign name="close" size={30} style={styles.closing}/>
 								</TouchableOpacity>
-								<Text style={styles.testoModal_schermataUtente}>Cliccando su una o più delle seguenti caselle applicherai la corrispondente modifica.</Text>
+								<Text style={styles.testoModal_schermataUtente}>Cliccando su una o più dei seguenti bottoni applicherai la corrispondente modifica.</Text>
 								
 							<Text style={styles.testoModal_schermataUtente}>Le modifiche apportate verranno visualizzate nella <Text style={{fontWeight: 'bold'}}>categoria personalizzata</Text>.</Text>
 						</View>

@@ -123,7 +123,7 @@ export default function HomeScreen( {navigation} ){
 				marginLeft: 20,
 				fontWeight: 'bold',
 				fontSize: 20
-				}}>Follow me!</Text>
+				}}>Contatti !</Text>
 				<Text style={{
 					fontSize: 18,
 					marginLeft: 215
@@ -131,8 +131,7 @@ export default function HomeScreen( {navigation} ){
 			</View>
 
 			<View style={{flexDirection:'row',
-			 justifyContent: 'space-evenly',
-			 
+			 justifyContent: 'space-evenly'
 			 }}>
 				<Image 
 				style={{height:60, width:60, marginTop: 20, marginLeft: 10, marginBottom: 30}}

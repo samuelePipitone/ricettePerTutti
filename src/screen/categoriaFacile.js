@@ -64,9 +64,6 @@ export default function categoria( {navigation} ){
               onSubmitEditing={getSearch}
               style={{width: '60%'}}
               />
-              <TouchableOpacity onPress={() => navigation.navigate('utente')}>
-			  	<FontAwesome name="bars" size={dimension.width/11}/>
-              </TouchableOpacity>
              </View>
 
             <ScrollView style={styles.container2_paginaCategoria}>
@@ -114,6 +111,7 @@ export default function categoria( {navigation} ){
 				yields = {data.recipe.yield}
 				totalTime = {data.recipe.totalTime}
 				mealType = {data.recipe.mealType}
+				time = {data.count}
 				navigation={navigation}/>
 				))}
             </ScrollView>

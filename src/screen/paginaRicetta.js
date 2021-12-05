@@ -196,7 +196,7 @@ export default function paginaRicetta( {route, navigation} ){
     </SafeAreaView>
     )
 
-    //CATEGORIA GENERALE----------------------------------------------------------------------------------
+    //CATEGORIA TRADIZIONALE----------------------------------------------------------------------------------
     else if(numeroId==2)
     return(
         <SafeAreaView style={{flex:1}}>
