@@ -1,7 +1,7 @@
 //IMPORT LIBRERIE
 import { Text, Image, SafeAreaView, TouchableOpacity,
 		 ScrollView, View, TouchableWithoutFeedback,
-		Modal } from 'react-native';
+		Modal, Linking } from 'react-native';
 import React from "react";
 
 
@@ -20,6 +20,11 @@ const stringaVeloce = stringaRicerca(3);
 const stringaPersonalizzata = stringaRicerca(4);
 
 export default function HomeScreen( {navigation} ){
+
+	    //gestione link esterno per ricetta
+		const handleClick = (stringa) => {
+			Linking.openURL(stringa);
+		}
 
 	const [modalVisible, setModalVisible] = React.useState(false);
 
@@ -133,22 +138,31 @@ export default function HomeScreen( {navigation} ){
 			<View style={{flexDirection:'row',
 			 justifyContent: 'space-evenly'
 			 }}>
-				<Image 
-				style={{height:60, width:60, marginTop: 20, marginLeft: 10, marginBottom: 30}}
-				source={{uri: 'https://www.dongiro.it/wp-content/uploads/2018/07/facebook-logo-png-5a35528eaa4f08.7998622015134439826976.jpg'}}>
-				</Image>
+				<TouchableOpacity onPress = {() => {handleClick('https://www.facebook.com/samuele.pipitone/')}}>
+					<Image 
+					style={{height:60, width:60, marginTop: 20, marginLeft: 10, marginBottom: 30}}
+					source={{uri: 'https://www.dongiro.it/wp-content/uploads/2018/07/facebook-logo-png-5a35528eaa4f08.7998622015134439826976.jpg'}}>
+					</Image>
+				</TouchableOpacity>
+
 				<Image 
 				style={{height:45, width:45, marginTop: 27, marginLeft: 10, marginBottom: 30}}
 				source={{uri: 'https://key0.cc/images/preview/20_01cfef901110694a52dbd29edc68f9c6.png'}}>
 				</Image>
-				<Image 
-				style={{height:60, width:60, marginTop: 20, marginLeft: 10, marginBottom: 30}}
-				source={{uri: 'https://banner2.cleanpng.com/20180628/wpy/kisspng-github-social-media-computer-icons-logo-android-5b34849064c384.6953108415301684644127.jpg'}}>
-				</Image>
-				<Image 
-				style={{height:70, width:70, marginTop: 15, marginLeft: 10, marginBottom: 30}}
-				source={{uri: 'https://key0.cc/images/preview/22277_7af3ae21119fdcfe3a175576ba341241.png'}}>
-				</Image>
+				
+				<TouchableOpacity onPress = {() => {handleClick('https://github.com/samuelePipitone')}}>
+					<Image 
+					style={{height:60, width:60, marginTop: 20, marginLeft: 10, marginBottom: 30}}
+					source={{uri: 'https://banner2.cleanpng.com/20180628/wpy/kisspng-github-social-media-computer-icons-logo-android-5b34849064c384.6953108415301684644127.jpg'}}>
+					</Image>
+				</TouchableOpacity>
+
+				<TouchableOpacity onPress = {() => {handleClick('https://www.instagram.com/samuele.pipitone/')}}>
+					<Image 
+					style={{height:70, width:70, marginTop: 15, marginLeft: 10, marginBottom: 30}}
+					source={{uri: 'https://key0.cc/images/preview/22277_7af3ae21119fdcfe3a175576ba341241.png'}}>
+					</Image>
+				</TouchableOpacity>
 			</View>
 		</View>
 

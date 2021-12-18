@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import {ScrollView, SafeAreaView, View, TouchableOpacity, Dimensions, Text} from "react-native";
 import { Searchbar } from 'react-native-paper';
 import AntDesign from "react-native-vector-icons/AntDesign";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { TextInput } from "react-native-gesture-handler";
 
 //miei import

@@ -34,7 +34,6 @@ export default function paginaRicetta( {route, navigation} ){
     const kcalPerPersona = (calories/yields)
     const plurale = (yields) => {if(yields==1) return "persona"; else return "persone"}
     const dimension = Dimensions.get('window');
-    let prova = '';
     const lunghezza = ingredients.length;
     let counter = 0;
     let prova2 = '';

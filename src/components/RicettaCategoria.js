@@ -142,7 +142,7 @@ export default function RicettaCategoria(
 					</View>
 					<View>
 						<View style={{flexDirection:'row', alignItems: 'center', top: 13}}>
-							<Fontisto name="world-o" size={dimension.width/22} style={{marginLeft: 60}} color='rgba(0, 56,9, 1)'/>
+							<Fontisto name="world-o" size={dimension.width/24} style={{marginLeft: 57}} color='rgba(0, 56,9, 1)'/>
 							<Text style={{fontSize:16, fontWeight:'bold', color:'#1c1c1c', marginLeft: 5}}>{cuisineType}</Text>
 						</View>
 						<View style={{alignItems:'center', flexDirection: 'row',
@@ -206,9 +206,9 @@ export default function RicettaCategoria(
 							  ellipsizeMode={'tail'}>{title}</Text>
 					</TouchableWithoutFeedback>
 					</View>
-					<View>
+					<View style={{top: 7}}>
 						<View style={{ flexDirection: 'row', alignItems: 'center',
-						left: 40, right: 3}}>
+						left: 40, right: 3, top: 5}}>
 							<Entypo name='stopwatch' size={dimension.width/20} color='rgba(0, 56,9,0.95)'/>
 							<Text style={{ marginLeft: dimension.width/60,
 								 fontSize: 16, fontWeight:"bold"}}>Tempo: {totalTime} minuti</Text>
